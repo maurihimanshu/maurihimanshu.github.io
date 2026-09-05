@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import {
   CheckCircle,
   ArrowRight,
+  ExternalLink,
+  BookOpen,
 } from 'lucide-react';
+import { GithubIcon } from '../../components/common/Icons';
 import { SectionHeader } from '../../components/ui/SectionHeader';
 import { Card } from '../../components/ui/Card';
 import { Badge } from '../../components/ui/Badge';
@@ -15,7 +18,7 @@ export const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
   const [filterCategory, setFilterCategory] = useState<string>('All');
 
-  const categories = ['All', 'Banking Platform', 'Event Streaming', 'Enterprise SDK'];
+  const categories = ['All', 'Banking Platform', 'Event Streaming', 'Enterprise SDK', 'Personal Projects'];
 
   const filteredProjects =
     filterCategory === 'All'
@@ -114,18 +117,42 @@ export const Projects: React.FC = () => {
                 </div>
               </div>
 
-              {/* Action Button */}
-              <div className="pt-6 mt-4 border-t border-slate-800/80 light:border-slate-200">
+              {/* Action Buttons */}
+              <div className="pt-6 mt-4 border-t border-slate-800/80 light:border-slate-200 flex items-center gap-2">
                 <Button
                   variant="secondary"
                   size="sm"
-                  className="w-full justify-between group-hover:border-cyan-500/50"
+                  className="flex-1 justify-between group-hover:border-cyan-500/50"
                   onClick={() => setSelectedProject(project)}
                   icon={<ArrowRight className="w-4 h-4 text-cyan-400 group-hover:translate-x-1 transition-transform" />}
                   iconPosition="right"
                 >
                   Architecture Deep Dive
                 </Button>
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg bg-slate-900 light:bg-slate-100 hover:text-cyan-400 light:hover:text-cyan-600 border border-slate-800 light:border-slate-300 transition-colors"
+                    aria-label={`GitHub repository for ${project.title}`}
+                    title="View GitHub Repository"
+                  >
+                    <GithubIcon className="w-4 h-4" />
+                  </a>
+                )}
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg bg-slate-900 light:bg-slate-100 hover:text-emerald-400 light:hover:text-emerald-600 border border-slate-800 light:border-slate-300 transition-colors"
+                    aria-label={`Live app for ${project.title}`}
+                    title="View on Google Play Store"
+                  >
+                    <ExternalLink className="w-4 h-4 text-emerald-400" />
+                  </a>
+                )}
               </div>
             </Card>
           ))}
@@ -219,6 +246,42 @@ export const Projects: React.FC = () => {
                     </Badge>
                   ))}
                 </div>
+              </div>
+
+              {/* External Links & Docs Connection */}
+              <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-slate-800 light:border-slate-200">
+                {selectedProject.docsId && (
+                  <a
+                    href={`#docs?topic=${selectedProject.docsId}`}
+                    onClick={() => setSelectedProject(null)}
+                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-medium bg-cyan-500/10 light:bg-cyan-50 text-cyan-400 light:text-cyan-700 border border-cyan-500/30 hover:bg-cyan-500/20 transition-all"
+                  >
+                    <BookOpen className="w-4 h-4" />
+                    <span>View Technical Documentation</span>
+                  </a>
+                )}
+                {selectedProject.githubUrl && (
+                  <a
+                    href={selectedProject.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-medium bg-slate-900 light:bg-slate-100 text-slate-300 light:text-slate-700 border border-slate-800 light:border-slate-300 hover:text-white light:hover:text-black transition-colors"
+                  >
+                    <GithubIcon className="w-4 h-4" />
+                    <span>GitHub Repository</span>
+                  </a>
+                )}
+                {selectedProject.liveUrl && (
+                  <a
+                    href={selectedProject.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-medium bg-emerald-500/10 light:bg-emerald-50 text-emerald-400 light:text-emerald-700 border border-emerald-500/30 hover:bg-emerald-500/20 transition-all"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    <span>Google Play Store</span>
+                  </a>
+                )}
               </div>
             </div>
           </Modal>

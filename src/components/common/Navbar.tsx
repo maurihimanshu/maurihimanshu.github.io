@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon, Terminal } from 'lucide-react';
+import { Menu, X, Sun, Moon, Terminal, BookOpen } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { useScrollSpy } from '../../hooks/useScrollSpy';
 import { Button } from '../ui/Button';
@@ -89,6 +89,15 @@ export const Navbar: React.FC = () => {
 
         {/* Action Controls */}
         <div className="hidden sm:flex items-center gap-2.5">
+          <a
+            href="#docs"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-800 light:border-slate-300 text-xs font-mono font-semibold text-slate-300 light:text-slate-700 hover:border-cyan-500 hover:text-cyan-400 light:hover:text-cyan-700 hover:bg-slate-800/40 light:hover:bg-slate-100 transition-all"
+            aria-label="Technical Documentation"
+          >
+            <BookOpen className="w-3.5 h-3.5 text-cyan-400" />
+            <span>Docs</span>
+          </a>
+
           <button
             onClick={toggleTheme}
             className="p-2 rounded-xl border border-slate-800 light:border-slate-300 text-slate-400 hover:text-slate-100 light:hover:text-slate-900 hover:bg-slate-800/60 light:hover:bg-slate-100 transition-all focus:outline-none"
@@ -116,6 +125,14 @@ export const Navbar: React.FC = () => {
 
         {/* Mobile menu trigger */}
         <div className="flex items-center gap-2 lg:hidden">
+          <a
+            href="#docs"
+            className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-slate-800 light:border-slate-300 text-xs font-mono text-cyan-400 bg-slate-900 light:bg-slate-100"
+            aria-label="Technical Documentation"
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            <span>Docs</span>
+          </a>
           <button
             onClick={toggleTheme}
             className="p-2 rounded-lg border border-slate-800 light:border-slate-300 text-slate-400"
@@ -137,6 +154,14 @@ export const Navbar: React.FC = () => {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-slate-950/95 dark:bg-[#0b0f19]/95 light:bg-white/95 border-b border-slate-800 light:border-slate-200 px-6 py-5 space-y-3 backdrop-blur-xl animate-fadeIn">
           <div className="grid grid-cols-2 gap-2">
+            <a
+              href="#docs"
+              onClick={() => setMobileMenuOpen(false)}
+              className="px-3 py-2 rounded-lg text-sm font-mono font-medium flex items-center gap-2 text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 col-span-2"
+            >
+              <BookOpen className="w-4 h-4" />
+              <span>Technical Documentation & Architecture Guides</span>
+            </a>
             {navItems.map((item) => {
               const id = item.href.replace('#', '');
               const isActive = activeId === id;

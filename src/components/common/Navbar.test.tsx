@@ -17,6 +17,7 @@ describe('Navbar component', () => {
     expect(screen.getAllByText('Experience')[0]).toBeInTheDocument();
     expect(screen.getAllByText('Architecture')[0]).toBeInTheDocument();
     expect(screen.getAllByText('Projects')[0]).toBeInTheDocument();
+    expect(screen.getAllByLabelText('Technical Documentation')[0]).toBeInTheDocument();
   });
 
   it('updates background on scroll', () => {
@@ -60,6 +61,13 @@ describe('Navbar component', () => {
     fireEvent.click(screen.getByLabelText('Open menu'));
     const getInTouchBtn = screen.getByRole('button', { name: /get in touch/i });
     fireEvent.click(getInTouchBtn);
+
+    // Re-open and click Docs link
+    fireEvent.click(screen.getByLabelText('Open menu'));
+    const mobileDocsLink = screen.getByRole('link', {
+      name: /Technical Documentation & Architecture Guides/i,
+    });
+    fireEvent.click(mobileDocsLink);
   });
 
   it('toggles theme when theme toggle button is clicked', () => {

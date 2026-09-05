@@ -12,6 +12,7 @@ describe('Footer component', () => {
     expect(screen.getByText('Experience & SME Tenure')).toBeInTheDocument();
     expect(screen.getByText('Interactive Banking Architecture')).toBeInTheDocument();
     expect(screen.getByText('tohimanshumail@gmail.com')).toBeInTheDocument();
+    expect(screen.getByText('Architecture Docs & Guides')).toBeInTheDocument();
   });
 
   it('scrolls to top when back to top button is clicked', () => {
