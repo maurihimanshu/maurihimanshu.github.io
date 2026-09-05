@@ -1,0 +1,23 @@
+# Global CODEOWNERS Configuration for Himanshu Kumar Portfolio
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default code owners for all files in this repository
+* @maurihimanshu @himanshumauri @githubofhimanshu
+
+# GitHub configurations, templates, and CI/CD workflows
+/.github/ @maurihimanshu @himanshumauri @githubofhimanshu
+
+# Application source code and test suites
+/src/ @maurihimanshu @himanshumauri @githubofhimanshu
+
+# Build configurations and package dependencies
+/package.json @maurihimanshu @himanshumauri @githubofhimanshu
+/package-lock.json @maurihimanshu @himanshumauri @githubofhimanshu
+/vite.config.ts @maurihimanshu @himanshumauri @githubofhimanshu
+/vitest.config.ts @maurihimanshu @himanshumauri @githubofhimanshu
+/tsconfig.json @maurihimanshu @himanshumauri @githubofhimanshu
+/tailwind.config.js @maurihimanshu @himanshumauri @githubofhimanshu
+
+# Open Source Governance and documentation
+/*.md @maurihimanshu @himanshumauri @githubofhimanshu
+/LICENSE @maurihimanshu @himanshumauri @githubofhimanshu
