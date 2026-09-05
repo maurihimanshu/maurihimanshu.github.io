@@ -21,7 +21,7 @@ export const App: React.FC = () => {
 
   return (
     <ThemeProvider>
-      {/* Enterprise Security: Blocks right-click, devtools shortcuts, and triggers exit intent modal */}
+      {/* Enterprise Security: Blocks right-click, devtools shortcuts, and triggers native browser exit prompt */}
       <SecurityGuard />
 
       {/* Interactive Ambient Background animated on cursor movement */}

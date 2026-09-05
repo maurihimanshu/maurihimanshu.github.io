@@ -148,119 +148,41 @@ describe('SecurityGuard component', () => {
     expect(f12Spy).not.toHaveBeenCalled();
   });
 
-  it('does not trigger exit intent on refresh or initial load before user engages inside page', () => {
+  it('triggers browser beforeunload confirmation when enableBeforeUnload is true', () => {
     renderGuard();
 
-    // Mouse is near the top (e.g. at reload button: clientY <= 15) right after load
-    const reloadLeaveEvent = new MouseEvent('mouseleave', { clientY: 10 });
-    act(() => {
-      document.documentElement.dispatchEvent(reloadLeaveEvent);
-    });
-
-    // Modal must NOT open on refresh
-    expect(screen.queryByTestId('exit-intent-modal')).not.toBeInTheDocument();
-
-    // Mouse movement near the top boundary (clientY <= 50) does not engage page yet
-    const topMove = new MouseEvent('mousemove', { clientY: 30 });
-    act(() => {
-      window.dispatchEvent(topMove);
-    });
+    const beforeUnloadEvent = new Event('beforeunload', { cancelable: true }) as BeforeUnloadEvent;
+    const preventDefaultSpy = vi.spyOn(beforeUnloadEvent, 'preventDefault');
 
     act(() => {
-      document.documentElement.dispatchEvent(reloadLeaveEvent);
+      window.dispatchEvent(beforeUnloadEvent);
     });
-    expect(screen.queryByTestId('exit-intent-modal')).not.toBeInTheDocument();
+
+    expect(preventDefaultSpy).toHaveBeenCalled();
+    expect(beforeUnloadEvent.defaultPrevented).toBe(true);
   });
 
-  it('triggers exit intent popup when user has engaged with page and moves cursor to close tab', () => {
-    renderGuard();
+  it('does not trigger beforeunload confirmation when enableBeforeUnload is false', () => {
+    renderGuard({ enableBeforeUnload: false });
 
-    // User browses down into the portfolio page (clientY > 50)
-    const browseEvent = new MouseEvent('mousemove', { clientY: 120 });
+    const beforeUnloadEvent = new Event('beforeunload', { cancelable: true }) as BeforeUnloadEvent;
+    const preventDefaultSpy = vi.spyOn(beforeUnloadEvent, 'preventDefault');
+
     act(() => {
-      window.dispatchEvent(browseEvent);
+      window.dispatchEvent(beforeUnloadEvent);
     });
 
-    // Mouse leaves towards the bottom (clientY = 200) -> should NOT open modal
-    const normalLeave = new MouseEvent('mouseleave', { clientY: 200 });
-    act(() => {
-      document.documentElement.dispatchEvent(normalLeave);
-    });
-    expect(screen.queryByTestId('exit-intent-modal')).not.toBeInTheDocument();
-
-    // User moves cursor up to close tab (clientY <= 15) -> opens exit intent modal
-    const closeTabEvent = new MouseEvent('mouseleave', { clientY: 12 });
-    act(() => {
-      document.documentElement.dispatchEvent(closeTabEvent);
-    });
-
-    expect(screen.getByTestId('exit-intent-modal')).toBeInTheDocument();
-    expect(screen.getByText('Leaving So Soon?')).toBeInTheDocument();
-    expect(screen.getByText(/2 Granted Intellectual Property Patents/i)).toBeInTheDocument();
-
-    // Verify "Stay on Page" button closes the modal
-    const stayBtn = screen.getByRole('button', { name: /Stay on Page/i });
-    act(() => {
-      fireEvent.click(stayBtn);
-    });
-    expect(screen.queryByTestId('exit-intent-modal')).not.toBeInTheDocument();
-
-    // Subsequent exit intent does not trigger repeatedly in same session
-    act(() => {
-      document.documentElement.dispatchEvent(closeTabEvent);
-    });
-    expect(screen.queryByTestId('exit-intent-modal')).not.toBeInTheDocument();
-  });
-
-  it('allows closing exit intent modal via the modal close button', () => {
-    renderGuard();
-
-    // Engage page first
-    act(() => {
-      window.dispatchEvent(new MouseEvent('mousemove', { clientY: 150 }));
-    });
-
-    // Exit through top
-    act(() => {
-      document.documentElement.dispatchEvent(new MouseEvent('mouseleave', { clientY: 10 }));
-    });
-
-    expect(screen.getByTestId('exit-intent-modal')).toBeInTheDocument();
-
-    const closeBtn = screen.getByLabelText('Close modal');
-    act(() => {
-      fireEvent.click(closeBtn);
-    });
-
-    expect(screen.queryByTestId('exit-intent-modal')).not.toBeInTheDocument();
-  });
-
-  it('does not show exit intent when enableExitIntent is false', () => {
-    renderGuard({ enableExitIntent: false });
-
-    // Engage page
-    act(() => {
-      window.dispatchEvent(new MouseEvent('mousemove', { clientY: 200 }));
-    });
-
-    // Exit through top
-    act(() => {
-      document.documentElement.dispatchEvent(new MouseEvent('mouseleave', { clientY: 5 }));
-    });
-
-    expect(screen.queryByTestId('exit-intent-modal')).not.toBeInTheDocument();
+    expect(preventDefaultSpy).not.toHaveBeenCalled();
   });
 
   it('cleans up event listeners on unmount', () => {
     const windowRemoveSpy = vi.spyOn(window, 'removeEventListener');
-    const docRemoveSpy = vi.spyOn(document.documentElement, 'removeEventListener');
 
     const { unmount } = renderGuard();
     unmount();
 
     expect(windowRemoveSpy).toHaveBeenCalledWith('contextmenu', expect.any(Function));
     expect(windowRemoveSpy).toHaveBeenCalledWith('keydown', expect.any(Function));
-    expect(windowRemoveSpy).toHaveBeenCalledWith('mousemove', expect.any(Function));
-    expect(docRemoveSpy).toHaveBeenCalledWith('mouseleave', expect.any(Function));
+    expect(windowRemoveSpy).toHaveBeenCalledWith('beforeunload', expect.any(Function));
   });
 });
