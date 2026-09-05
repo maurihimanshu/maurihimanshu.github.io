@@ -86,6 +86,10 @@ export const About: React.FC = () => {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-emerald-400" />
+                <span>AWS Certified Cloud Practitioner</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-emerald-400" />
                 <span>Microsoft Azure Fundamentals Certified</span>
               </div>
               <div className="flex items-center gap-2">

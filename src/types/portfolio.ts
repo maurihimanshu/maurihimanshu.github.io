@@ -61,6 +61,7 @@ export interface PatentItem {
   summary: string;
   domain: string;
   keyInnovations: string[];
+  link: string;
 }
 
 export interface CertificationItem {
