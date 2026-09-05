@@ -3,6 +3,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import { Navbar } from './components/common/Navbar';
 import { Footer } from './components/common/Footer';
 import { CustomCursor } from './components/common/CustomCursor';
+import { InteractiveBackground } from './components/common/InteractiveBackground';
 import { InitialLoader } from './components/common/InitialLoader';
 import { Hero } from './features/hero/Hero';
 import { About } from './features/about/About';
@@ -19,6 +20,9 @@ export const App: React.FC = () => {
 
   return (
     <ThemeProvider>
+      {/* Interactive Ambient Background animated on cursor movement */}
+      <InteractiveBackground />
+
       {/* System Initialization Preloader */}
       {isLoading && <InitialLoader onComplete={() => setIsLoading(false)} />}
 
