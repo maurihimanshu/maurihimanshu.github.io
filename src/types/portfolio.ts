@@ -45,12 +45,15 @@ export interface ProjectItem {
   title: string;
   subtitle: string;
   description: string;
-  category: 'Banking Platform' | 'Event Streaming' | 'Cloud & Microservices' | 'Enterprise SDK';
+  category: 'Banking Platform' | 'Event Streaming' | 'Cloud & Microservices' | 'Enterprise SDK' | 'Personal Projects';
   architectureHighlights: string[];
   keyOutcomes: string[];
   technologies: string[];
   metrics?: { label: string; value: string }[];
   featured?: boolean;
+  githubUrl?: string;
+  liveUrl?: string;
+  docsId?: string;
 }
 
 export interface PatentItem {

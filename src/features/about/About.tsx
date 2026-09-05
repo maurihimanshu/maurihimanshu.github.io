@@ -59,6 +59,30 @@ export const About: React.FC = () => {
               <p>
                 As a designated Team SME, I don’t just write code; I mentor developers, establish automated CI/CD quality gates (&gt;80% code coverage on SonarQube), lead root-cause analysis (RCA) on production incidents using Splunk and Kibana, and formulate reusable platform SDKs consumed by <strong>20+ product squads</strong>.
               </p>
+              <p>
+                Beyond enterprise systems, I engineer open-source applications exploring zero-trust privacy and offline computing—including{' '}
+                <a
+                  href="#docs?topic=expenso-android"
+                  className="text-cyan-400 light:text-cyan-600 font-semibold underline underline-offset-2 hover:text-cyan-300"
+                >
+                  Expenso
+                </a>{' '}
+                (an offline encrypted Android finance app on Google Play),{' '}
+                <a
+                  href="#docs?topic=ai-work-assistant"
+                  className="text-cyan-400 light:text-cyan-600 font-semibold underline underline-offset-2 hover:text-cyan-300"
+                >
+                  AI Work Assistant
+                </a>{' '}
+                (a privacy-first desktop productivity & local ML engine), and{' '}
+                <a
+                  href="#docs?topic=qr-file-transfer"
+                  className="text-cyan-400 light:text-cyan-600 font-semibold underline underline-offset-2 hover:text-cyan-300"
+                >
+                  Reliable QR File Transfer
+                </a>{' '}
+                (an optical air-gapped data streaming protocol).
+              </p>
             </div>
 
             {/* Manager rating highlight callout */}

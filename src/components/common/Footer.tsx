@@ -67,6 +67,12 @@ export const Footer: React.FC = () => {
                   Granted Patents
                 </a>
               </li>
+              <li>
+                <a href="#docs" className="hover:text-cyan-400 transition-colors flex items-center gap-1.5 text-cyan-400/90 font-medium">
+                  <span>Architecture Docs & Guides</span>
+                  <span className="text-[10px] font-mono px-1 rounded bg-cyan-500/10 border border-cyan-500/30">DOCS</span>
+                </a>
+              </li>
             </ul>
           </div>
 
