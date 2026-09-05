@@ -113,4 +113,46 @@ describe('MermaidDiagram', () => {
       screen.getByText(/Diagram Syntax Error: Failed to render diagram/i)
     ).toBeInTheDocument();
   });
+
+  it('does not set error if unmounted before render rejection', async () => {
+    let rejectFn: (err: unknown) => void = () => {};
+    vi.mocked(mermaid.render).mockImplementationOnce(
+      () =>
+        new Promise((_, reject) => {
+          rejectFn = reject;
+        })
+    );
+
+    const { unmount } = render(
+      <ThemeProvider>
+        <MermaidDiagram chart="graph TD;\nunmount_error_test;" />
+      </ThemeProvider>
+    );
+
+    unmount();
+    await act(async () => {
+      rejectFn(new Error('Unmounted error'));
+    });
+  });
+
+  it('does not set SVG if unmounted before render resolution', async () => {
+    let resolveFn: (val: { svg: string }) => void = () => {};
+    vi.mocked(mermaid.render).mockImplementationOnce(
+      () =>
+        new Promise((resolve) => {
+          resolveFn = resolve;
+        })
+    );
+
+    const { unmount } = render(
+      <ThemeProvider>
+        <MermaidDiagram chart="graph TD;\nunmount_resolve_test;" />
+      </ThemeProvider>
+    );
+
+    unmount();
+    await act(async () => {
+      resolveFn({ svg: '<svg></svg>' });
+    });
+  });
 });
