@@ -14,5 +14,6 @@ describe('Patents feature', () => {
     expect(
       screen.getByText(/Real-time sensor fusion analyzing multi-axis acceleration/i)
     ).toBeInTheDocument();
+    expect(screen.getAllByText('Verify on IP India').length).toBe(2);
   });
 });

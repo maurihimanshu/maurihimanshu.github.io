@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle2, FileCheck } from 'lucide-react';
+import { CheckCircle2, FileCheck, ExternalLink } from 'lucide-react';
 import { SectionHeader } from '../../components/ui/SectionHeader';
 import { Card } from '../../components/ui/Card';
 import { Badge } from '../../components/ui/Badge';
@@ -76,7 +76,15 @@ export const Patents: React.FC = () => {
                   <FileCheck className="w-4 h-4 text-purple-400 light:text-purple-600" />
                   Official IP Filing
                 </span>
-                <span className="text-purple-400 light:text-purple-700 font-semibold">Government Certified</span>
+                <a
+                  href={patent.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-400 light:text-purple-700 font-semibold hover:underline inline-flex items-center gap-1 group/link"
+                >
+                  <span>Verify on IP India</span>
+                  <ExternalLink className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
+                </a>
               </div>
             </Card>
           ))}

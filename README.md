@@ -169,6 +169,7 @@ We maintain strict open-source governance and enterprise software standards:
 ## 📬 Connect & Contact
 
 - **Live Site**: [https://maurihimanshu.github.io/portfolio/](https://maurihimanshu.github.io/portfolio/)
+- **LinkedIn**: [himanshumauri](https://www.linkedin.com/in/himanshumauri/)
 - **GitHub**: [@maurihimanshu](https://github.com/maurihimanshu)
 - **Email**: [maurihimanshu@gmail.com](mailto:maurihimanshu@gmail.com)
 - **Repository**: [https://github.com/maurihimanshu/portfolio.git](https://github.com/maurihimanshu/portfolio.git)

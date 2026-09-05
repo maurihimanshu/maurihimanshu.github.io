@@ -15,8 +15,8 @@ export const personalInfo: PersonalInfo = {
   headline: "Building Secure, Scalable Digital Banking Systems & High-Throughput Event Architectures",
   location: "Kolkata, India",
   email: "tohimanshumail@gmail.com",
-  linkedin: "https://linkedin.com",
-  github: "https://github.com",
+  linkedin: "https://www.linkedin.com/in/himanshumauri/",
+  github: "https://github.com/maurihimanshu",
   summary:
     "Software Engineer with 4+ years of experience delivering secure, scalable, and customer-focused digital banking solutions. Proven ownership across Agile SDLC, production support, software reliability, secure engineering, code quality, and continuous improvement. Currently serving as a Team SME—providing technical guidance, architecture design inputs, code review governance, and knowledge-transfer sessions, while consistently earning 5/5 manager ratings for 3 consecutive years.",
   yearsOfExperience: "4+ Years",
@@ -253,6 +253,7 @@ export const patentsData: PatentItem[] = [
       "Predictive anomaly detection algorithms operating with ultra-low latency.",
       "Rapid-response actuation framework for proactive physical stabilization.",
     ],
+    link: "https://iprsearch.ipindia.gov.in/PublicSearch/PublicationSearch/ApplicationStatus",
   },
   {
     id: "patent-surveillance-alert",
@@ -267,6 +268,7 @@ export const patentsData: PatentItem[] = [
       "Edge-to-cloud telemetry sync minimizing false-positive emergency alerts.",
       "Instantaneous multi-channel dispatch protocol (audio visual, cellular, webhook triggers).",
     ],
+    link: "https://iprsearch.ipindia.gov.in/PublicSearch/PublicationSearch/ApplicationStatus",
   },
 ];
 
@@ -277,7 +279,15 @@ export const certificationsData: CertificationItem[] = [
     code: "AWS-DVA",
     badgeColor: "from-amber-500 to-orange-600",
     skillsVerified: ["AWS Lambda", "ECS", "IAM", "DynamoDB", "S3", "API Gateway", "CloudFormation", "DevOps"],
-    link: "https://aws.amazon.com/certification/certified-developer-associate/",
+    link: "https://www.credly.com/badges/2f2f6010-85ec-4b3a-b242-e8a8244253fc/public_url",
+  },
+  {
+    name: "AWS Certified Cloud Practitioner",
+    issuer: "Amazon Web Services (AWS)",
+    code: "AWS-CCP",
+    badgeColor: "from-orange-500 to-amber-600",
+    skillsVerified: ["Cloud Concepts", "AWS Core Services", "Security & Compliance", "Cloud Economics"],
+    link: "https://www.credly.com/go/IK94htfisaj9MAz0hkDGjA",
   },
   {
     name: "Microsoft Certified: Azure Fundamentals",
@@ -285,7 +295,7 @@ export const certificationsData: CertificationItem[] = [
     code: "AZ-900",
     badgeColor: "from-blue-500 to-sky-600",
     skillsVerified: ["Cloud Concepts", "Azure Architecture", "Azure Services", "Security, Privacy & Compliance"],
-    link: "https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/",
+    link: "https://learn.microsoft.com/api/credentials/share/en-us/himanshumauri/7A2201D78B514738?sharingId",
   },
   {
     name: "GitHub Copilot Certification",
@@ -293,7 +303,7 @@ export const certificationsData: CertificationItem[] = [
     code: "GH-COPILOT",
     badgeColor: "from-purple-500 to-indigo-600",
     skillsVerified: ["AI-Assisted Engineering", "Prompt Engineering", "Test Generation", "Secure Code Synthesis"],
-    link: "https://resources.github.com/copilot-certification/",
+    link: "https://www.credly.com/badges/8df4d902-1b31-435a-92bd-6e97b5d2be58/public_url",
   },
 ];
 

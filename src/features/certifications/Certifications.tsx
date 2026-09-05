@@ -26,12 +26,12 @@ export const Certifications: React.FC = () => {
           subtitle="Industry-recognized cloud accreditations, formal computer science engineering background, and continuous excellence honors."
         />
 
-        {/* Certifications 3-card row */}
+        {/* Certifications row */}
         <div className="max-w-6xl mx-auto mb-16">
           <h3 className="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold mb-6 text-left">
             Industry Cloud & AI Certifications
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {certificationsData.map((cert) => (
               <Card
                 key={cert.name}

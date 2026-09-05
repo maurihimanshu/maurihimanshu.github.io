@@ -8,9 +8,10 @@ describe('Certifications feature', () => {
     render(<Certifications />);
 
     expect(screen.getByText('AWS Certified Developer – Associate')).toBeInTheDocument();
+    expect(screen.getByText('AWS Certified Cloud Practitioner')).toBeInTheDocument();
     expect(screen.getByText('Microsoft Certified: Azure Fundamentals')).toBeInTheDocument();
     expect(screen.getByText('GitHub Copilot Certification')).toBeInTheDocument();
-    expect(screen.getAllByText('Credentials').length).toBe(3);
+    expect(screen.getAllByText('Credentials').length).toBe(4);
   });
 
   it('renders formal education and honors recognitions', () => {
