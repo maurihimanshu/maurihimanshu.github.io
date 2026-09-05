@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { ShieldAlert, LogOut, ArrowRight, ExternalLink } from 'lucide-react';
 import { Modal } from '../ui/Modal';
 import { Button } from '../ui/Button';
@@ -7,18 +7,17 @@ export interface SecurityGuardProps {
   enableContextMenuBlock?: boolean;
   enableDevToolsBlock?: boolean;
   enableExitIntent?: boolean;
-  enableBeforeUnload?: boolean;
 }
 
 export const SecurityGuard: React.FC<SecurityGuardProps> = ({
   enableContextMenuBlock = true,
   enableDevToolsBlock = true,
   enableExitIntent = true,
-  enableBeforeUnload = true,
 }) => {
   const [securityToast, setSecurityToast] = useState<string | null>(null);
   const [isExitModalOpen, setIsExitModalOpen] = useState(false);
   const [hasShownExitModal, setHasShownExitModal] = useState(false);
+  const hasEngagedPageRef = useRef(false);
 
   // Auto-hide toast after 3 seconds
   useEffect(() => {
@@ -34,11 +33,11 @@ export const SecurityGuard: React.FC<SecurityGuardProps> = ({
   }, []);
 
   useEffect(() => {
-    // 1. Right Click Blocking
+    // 1. Right Click Blocking with Portfolio-Specific Notice
     const handleContextMenu = (e: MouseEvent) => {
       if (enableContextMenuBlock) {
         e.preventDefault();
-        showToast('Right-click context menu is restricted on this enterprise banking portal.');
+        showToast('Right-click context menu is restricted on this portfolio.');
       }
     };
 
@@ -58,17 +57,16 @@ export const SecurityGuard: React.FC<SecurityGuardProps> = ({
       }
     };
 
-    // 3. Tab Close Native Confirmation (beforeunload)
-    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-      if (!enableBeforeUnload) return;
-      e.preventDefault();
-      e.returnValue = '';
-      return '';
+    // 3. Track when the user is actively viewing/browsing inside the page
+    const handleMouseMove = (e: MouseEvent) => {
+      if (e.clientY > 50) {
+        hasEngagedPageRef.current = true;
+      }
     };
 
-    // 4. Custom Exit Intent Popup when moving cursor towards tab closing
+    // 4. Custom Exit Intent Popup when user moves cursor towards tab close after viewing page
     const handleMouseLeave = (e: MouseEvent) => {
-      if (!enableExitIntent || hasShownExitModal) return;
+      if (!enableExitIntent || hasShownExitModal || !hasEngagedPageRef.current) return;
       if (e.clientY <= 15) {
         setIsExitModalOpen(true);
         setHasShownExitModal(true);
@@ -77,16 +75,16 @@ export const SecurityGuard: React.FC<SecurityGuardProps> = ({
 
     window.addEventListener('contextmenu', handleContextMenu);
     window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('beforeunload', handleBeforeUnload);
+    window.addEventListener('mousemove', handleMouseMove);
     document.documentElement.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
       window.removeEventListener('contextmenu', handleContextMenu);
       window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('beforeunload', handleBeforeUnload);
+      window.removeEventListener('mousemove', handleMouseMove);
       document.documentElement.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, [enableContextMenuBlock, enableDevToolsBlock, enableExitIntent, enableBeforeUnload, hasShownExitModal, showToast]);
+  }, [enableContextMenuBlock, enableDevToolsBlock, enableExitIntent, hasShownExitModal, showToast]);
 
   return (
     <>

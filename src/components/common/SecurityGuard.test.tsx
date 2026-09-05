@@ -21,7 +21,7 @@ describe('SecurityGuard component', () => {
     vi.restoreAllMocks();
   });
 
-  it('blocks right click and displays security toast with auto-hide', () => {
+  it('blocks right click and displays portfolio security toast with auto-hide', () => {
     renderGuard();
 
     const event = new MouseEvent('contextmenu', { cancelable: true, bubbles: true });
@@ -33,7 +33,7 @@ describe('SecurityGuard component', () => {
 
     expect(preventDefaultSpy).toHaveBeenCalled();
     expect(screen.getByTestId('security-toast')).toBeInTheDocument();
-    expect(screen.getByText(/Right-click context menu is restricted/i)).toBeInTheDocument();
+    expect(screen.getByText('Right-click context menu is restricted on this portfolio.')).toBeInTheDocument();
 
     // Auto-hides after 3 seconds
     act(() => {
@@ -148,46 +148,50 @@ describe('SecurityGuard component', () => {
     expect(f12Spy).not.toHaveBeenCalled();
   });
 
-  it('handles beforeunload event when closing tab', () => {
+  it('does not trigger exit intent on refresh or initial load before user engages inside page', () => {
     renderGuard();
 
-    const beforeUnloadEvent = new Event('beforeunload', { cancelable: true }) as BeforeUnloadEvent;
-    const preventDefaultSpy = vi.spyOn(beforeUnloadEvent, 'preventDefault');
-
+    // Mouse is near the top (e.g. at reload button: clientY <= 15) right after load
+    const reloadLeaveEvent = new MouseEvent('mouseleave', { clientY: 10 });
     act(() => {
-      window.dispatchEvent(beforeUnloadEvent);
+      document.documentElement.dispatchEvent(reloadLeaveEvent);
     });
 
-    expect(preventDefaultSpy).toHaveBeenCalled();
-  });
+    // Modal must NOT open on refresh
+    expect(screen.queryByTestId('exit-intent-modal')).not.toBeInTheDocument();
 
-  it('does not handle beforeunload when enableBeforeUnload is false', () => {
-    renderGuard({ enableBeforeUnload: false });
-
-    const beforeUnloadEvent = new Event('beforeunload', { cancelable: true }) as BeforeUnloadEvent;
-    const preventDefaultSpy = vi.spyOn(beforeUnloadEvent, 'preventDefault');
-
+    // Mouse movement near the top boundary (clientY <= 50) does not engage page yet
+    const topMove = new MouseEvent('mousemove', { clientY: 30 });
     act(() => {
-      window.dispatchEvent(beforeUnloadEvent);
+      window.dispatchEvent(topMove);
     });
 
-    expect(preventDefaultSpy).not.toHaveBeenCalled();
+    act(() => {
+      document.documentElement.dispatchEvent(reloadLeaveEvent);
+    });
+    expect(screen.queryByTestId('exit-intent-modal')).not.toBeInTheDocument();
   });
 
-  it('detects exit intent when cursor exits top of window and displays exit popup modal', () => {
+  it('triggers exit intent popup when user has engaged with page and moves cursor to close tab', () => {
     renderGuard();
 
-    // Mouse leaves near the bottom (clientY = 100) -> should NOT open modal
-    const normalLeave = new MouseEvent('mouseleave', { clientY: 100 });
+    // User browses down into the portfolio page (clientY > 50)
+    const browseEvent = new MouseEvent('mousemove', { clientY: 120 });
+    act(() => {
+      window.dispatchEvent(browseEvent);
+    });
+
+    // Mouse leaves towards the bottom (clientY = 200) -> should NOT open modal
+    const normalLeave = new MouseEvent('mouseleave', { clientY: 200 });
     act(() => {
       document.documentElement.dispatchEvent(normalLeave);
     });
     expect(screen.queryByTestId('exit-intent-modal')).not.toBeInTheDocument();
 
-    // Mouse leaves near the top tabs/close button (clientY = 10) -> opens modal
-    const exitIntentEvent = new MouseEvent('mouseleave', { clientY: 10 });
+    // User moves cursor up to close tab (clientY <= 15) -> opens exit intent modal
+    const closeTabEvent = new MouseEvent('mouseleave', { clientY: 12 });
     act(() => {
-      document.documentElement.dispatchEvent(exitIntentEvent);
+      document.documentElement.dispatchEvent(closeTabEvent);
     });
 
     expect(screen.getByTestId('exit-intent-modal')).toBeInTheDocument();
@@ -203,7 +207,7 @@ describe('SecurityGuard component', () => {
 
     // Subsequent exit intent does not trigger repeatedly in same session
     act(() => {
-      document.documentElement.dispatchEvent(exitIntentEvent);
+      document.documentElement.dispatchEvent(closeTabEvent);
     });
     expect(screen.queryByTestId('exit-intent-modal')).not.toBeInTheDocument();
   });
@@ -211,9 +215,14 @@ describe('SecurityGuard component', () => {
   it('allows closing exit intent modal via the modal close button', () => {
     renderGuard();
 
-    const exitIntentEvent = new MouseEvent('mouseleave', { clientY: 10 });
+    // Engage page first
     act(() => {
-      document.documentElement.dispatchEvent(exitIntentEvent);
+      window.dispatchEvent(new MouseEvent('mousemove', { clientY: 150 }));
+    });
+
+    // Exit through top
+    act(() => {
+      document.documentElement.dispatchEvent(new MouseEvent('mouseleave', { clientY: 10 }));
     });
 
     expect(screen.getByTestId('exit-intent-modal')).toBeInTheDocument();
@@ -229,9 +238,14 @@ describe('SecurityGuard component', () => {
   it('does not show exit intent when enableExitIntent is false', () => {
     renderGuard({ enableExitIntent: false });
 
-    const exitIntentEvent = new MouseEvent('mouseleave', { clientY: 5 });
+    // Engage page
     act(() => {
-      document.documentElement.dispatchEvent(exitIntentEvent);
+      window.dispatchEvent(new MouseEvent('mousemove', { clientY: 200 }));
+    });
+
+    // Exit through top
+    act(() => {
+      document.documentElement.dispatchEvent(new MouseEvent('mouseleave', { clientY: 5 }));
     });
 
     expect(screen.queryByTestId('exit-intent-modal')).not.toBeInTheDocument();
@@ -246,7 +260,7 @@ describe('SecurityGuard component', () => {
 
     expect(windowRemoveSpy).toHaveBeenCalledWith('contextmenu', expect.any(Function));
     expect(windowRemoveSpy).toHaveBeenCalledWith('keydown', expect.any(Function));
-    expect(windowRemoveSpy).toHaveBeenCalledWith('beforeunload', expect.any(Function));
+    expect(windowRemoveSpy).toHaveBeenCalledWith('mousemove', expect.any(Function));
     expect(docRemoveSpy).toHaveBeenCalledWith('mouseleave', expect.any(Function));
   });
 });
