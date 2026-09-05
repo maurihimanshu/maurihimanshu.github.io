@@ -7,9 +7,13 @@
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Strict-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Coverage](https://img.shields.io/badge/Coverage-100%25-brightgreen?style=for-the-badge&logo=vitest&logoColor=white)](https://vitest.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
-> **Software Engineer / Team SME** at Cognizant Technology Solutions  
-> Specializing in **Digital Banking Platforms**, **Reactive Microservices**, and **Kafka Event Streaming Architectures**.
+> **Short Description**:  
+> Enterprise-grade React 18 & TypeScript portfolio application for Himanshu Kumar (Software Engineer & Team SME at Cognizant), showcasing mission-critical digital banking platforms, reactive microservices, Kafka event streaming architectures, patented IoT systems, dynamic Light/Dark mode, and strict 100% test coverage.
+
+> **Live Demo**: [https://maurihimanshu.github.io/portfolio/](https://maurihimanshu.github.io/portfolio/)  
+> **Software Engineer / Team SME** at Cognizant Technology Solutions | Specializing in **Digital Banking Platforms**, **Reactive Microservices**, and **Kafka Event Streaming Architectures**.
 
 ---
 
@@ -151,8 +155,20 @@ npm run preview
 
 ---
 
+## ⚖️ Open Source Governance & Community
+
+We maintain strict open-source governance and enterprise software standards:
+
+- **[Code of Conduct](CODE_OF_CONDUCT.md)**: Contributor Covenant v2.1 standards for an inclusive, welcoming community.
+- **[Contributing Guidelines](CONTRIBUTING.md)**: Setup, branching strategy, commit conventions, and our 100% test coverage requirement.
+- **[Security Policy](SECURITY.md)**: Responsible vulnerability disclosure process and support channels.
+- **[License](LICENSE)**: Released under the permissive [MIT License](LICENSE).
+
+---
+
 ## 📬 Connect & Contact
 
+- **Live Site**: [https://maurihimanshu.github.io/portfolio/](https://maurihimanshu.github.io/portfolio/)
 - **GitHub**: [@maurihimanshu](https://github.com/maurihimanshu)
 - **Email**: [maurihimanshu@gmail.com](mailto:maurihimanshu@gmail.com)
 - **Repository**: [https://github.com/maurihimanshu/portfolio.git](https://github.com/maurihimanshu/portfolio.git)

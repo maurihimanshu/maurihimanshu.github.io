@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security Vulnerability Reporting
+    url: mailto:maurihimanshu@gmail.com
+    about: Please report security vulnerabilities privately via email.
+  - name: General Questions & Networking
+    url: https://linkedin.com
+    about: Connect on LinkedIn for professional inquiries or discussion.
