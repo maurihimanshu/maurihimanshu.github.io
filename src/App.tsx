@@ -4,6 +4,7 @@ import { Navbar } from './components/common/Navbar';
 import { Footer } from './components/common/Footer';
 import { CustomCursor } from './components/common/CustomCursor';
 import { InteractiveBackground } from './components/common/InteractiveBackground';
+import { SecurityGuard } from './components/common/SecurityGuard';
 import { InitialLoader } from './components/common/InitialLoader';
 import { Hero } from './features/hero/Hero';
 import { About } from './features/about/About';
@@ -20,6 +21,9 @@ export const App: React.FC = () => {
 
   return (
     <ThemeProvider>
+      {/* Enterprise Security: Blocks right-click, devtools shortcuts, and triggers native browser exit prompt */}
+      <SecurityGuard />
+
       {/* Interactive Ambient Background animated on cursor movement */}
       <InteractiveBackground />
 
