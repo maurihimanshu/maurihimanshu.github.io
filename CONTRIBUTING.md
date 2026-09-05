@@ -37,8 +37,9 @@ All contributors are expected to adhere to our [Code of Conduct](CODE_OF_CONDUCT
 
 ## 🌿 Branching Strategy & Git Workflow
 
-- **`main`**: Production-ready branch deployed to GitHub Pages.
-- Create feature or fix branches from `main` using descriptive naming:
+- **`main`**: Protected production branch deployed live to GitHub Pages. Direct pushes are restricted; all changes must arrive via reviewed Pull Request from `developer`.
+- **`developer`**: Active integration branch for ongoing development. Feature branches branch out from and merge back into `developer`.
+- Create feature or fix branches from `developer` using descriptive naming:
   - `feat/feature-name`
   - `fix/bug-description`
   - `docs/documentation-update`
