@@ -42,3 +42,7 @@ tmp
 temp
 *.bak
 *.tmp
+
+# Lighthouse reports
+lh-*
+lighthouse-*
