@@ -173,7 +173,7 @@ export const SystemArchitecture: React.FC = () => {
                 >
                   {/* Step indicator */}
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-mono text-slate-500 uppercase">
+                    <span className="text-[10px] font-mono text-slate-400 uppercase">
                       Stage 0{index + 1}
                     </span>
                     {isSimulatingDone && (
@@ -187,9 +187,9 @@ export const SystemArchitecture: React.FC = () => {
                     )}
                   </div>
 
-                  <h4 className="font-bold text-sm text-white light:text-slate-900 mb-1 line-clamp-1">
+                  <h3 className="font-bold text-sm text-white light:text-slate-900 mb-1 line-clamp-1">
                     {node.name}
-                  </h4>
+                  </h3>
                   <p className="text-[11px] text-cyan-400 light:text-cyan-600 font-mono mb-2 truncate">
                     {node.tech}
                   </p>
@@ -220,9 +220,9 @@ export const SystemArchitecture: React.FC = () => {
 
               <div className="space-y-4">
                 <div>
-                  <h5 className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">
+                  <h4 className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">
                     Architecture Role & Responsibilities
-                  </h5>
+                  </h4>
                   <p className="text-sm text-slate-300 light:text-slate-700 leading-relaxed">
                     {selectedNode.role}
                   </p>
@@ -234,9 +234,9 @@ export const SystemArchitecture: React.FC = () => {
                       <Zap className="w-5 h-5" />
                     </div>
                     <div>
-                      <h5 className="text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider">
+                      <h4 className="text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider">
                         Himanshu's SME Contribution & Optimization
-                      </h5>
+                      </h4>
                       <p className="text-xs sm:text-sm text-slate-300 light:text-slate-700 mt-1 leading-relaxed">
                         {selectedNode.smeInsight}
                       </p>
@@ -250,10 +250,10 @@ export const SystemArchitecture: React.FC = () => {
           {/* Right Column: Architectural Highlights Checklist */}
           <div className="lg:col-span-4 text-left">
             <Card className="border-slate-800 light:border-slate-200 p-6 space-y-4">
-              <h4 className="font-bold text-white light:text-slate-900 text-sm font-mono flex items-center gap-2">
+              <h3 className="font-bold text-white light:text-slate-900 text-sm font-mono flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-emerald-400 light:text-emerald-600" />
                 <span>Enterprise Banking Safeguards</span>
-              </h4>
+              </h3>
 
               <div className="space-y-3 text-xs text-slate-300 light:text-slate-700">
                 <div className="p-2.5 rounded-lg bg-slate-950/50 light:bg-slate-100 border border-slate-800/80 light:border-slate-200">

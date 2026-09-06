@@ -77,7 +77,7 @@ export const Contact: React.FC = () => {
                     <Mail className="w-5 h-5" />
                   </div>
                   <div className="overflow-hidden">
-                    <div className="text-[11px] font-mono text-slate-500 uppercase">
+                    <div className="text-[11px] font-mono text-slate-400 uppercase">
                       Email Address
                     </div>
                     <a
@@ -108,7 +108,7 @@ export const Contact: React.FC = () => {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-[11px] font-mono text-slate-500 uppercase">Location</div>
+                  <div className="text-[11px] font-mono text-slate-400 uppercase">Location</div>
                   <div className="text-sm font-semibold text-slate-200 light:text-slate-800">
                     {personalInfo.location}
                   </div>

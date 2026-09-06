@@ -38,7 +38,7 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Main Headline */}
-            <div className="space-y-2">
+            <div className="space-y-2 min-h-[160px] sm:min-h-[140px]">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white dark:text-white light:text-slate-900 leading-[1.15]">
                 Architecting <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400">Secure, Scalable</span> Digital Banking Platforms
               </h1>
@@ -77,7 +77,7 @@ export const Hero: React.FC = () => {
 
             {/* Tech chips strip */}
             <div className="pt-4 border-t border-slate-800/80 light:border-slate-200">
-              <span className="text-xs font-mono text-slate-500 uppercase tracking-wider block mb-2.5">
+              <span className="text-xs font-mono text-slate-400 uppercase tracking-wider block mb-2.5">
                 Core Production Stack
               </span>
               <div className="flex flex-wrap gap-2">

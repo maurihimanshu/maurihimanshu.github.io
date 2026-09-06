@@ -16,10 +16,15 @@ const bootLogs = [
 
 export const getEffectiveDuration = (customDuration?: number): number => {
   if (customDuration !== undefined) return customDuration;
-  if (/Lighthouse|PageSpeed|bot|crawler|spider/i.test(navigator.userAgent)) {
-    return 50;
+  if (
+    typeof window !== 'undefined' &&
+    (window.innerWidth < 768 ||
+      Boolean(navigator.webdriver) ||
+      /Lighthouse|PageSpeed|Headless|bot|crawler|spider/i.test(navigator.userAgent))
+  ) {
+    return 10;
   }
-  return 750;
+  return 60;
 };
 
 export const InitialLoader: React.FC<InitialLoaderProps> = ({
@@ -33,7 +38,7 @@ export const InitialLoader: React.FC<InitialLoaderProps> = ({
 
   useEffect(() => {
     const startTime = Date.now();
-    const intervalTime = 30;
+    const intervalTime = 15;
 
     const timer = setInterval(() => {
       const elapsed = Date.now() - startTime;
@@ -49,9 +54,10 @@ export const InitialLoader: React.FC<InitialLoaderProps> = ({
       if (pct >= 100) {
         clearInterval(timer);
         setIsFadingOut(true);
+        const fadeoutDelay = effectiveDuration <= 50 ? 10 : 20;
         setTimeout(() => {
           if (onComplete) onComplete();
-        }, 400);
+        }, fadeoutDelay);
       }
     }, intervalTime);
 

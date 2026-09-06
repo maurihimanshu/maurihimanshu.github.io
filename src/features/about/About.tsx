@@ -137,9 +137,9 @@ export const About: React.FC = () => {
                     <Building2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white light:text-slate-900 text-base">
+                    <h3 className="font-bold text-white light:text-slate-900 text-base">
                       Current Engagement
-                    </h4>
+                    </h3>
                     <p className="text-xs text-slate-400 light:text-slate-600">Cognizant Technology Solutions</p>
                   </div>
                 </div>
@@ -178,7 +178,7 @@ export const About: React.FC = () => {
                 </div>
 
                 <div className="pt-3 border-t border-slate-800 light:border-slate-200">
-                  <div className="text-xs font-mono text-slate-500 mb-2">Location & Status</div>
+                  <div className="text-xs font-mono text-slate-400 mb-2">Location & Status</div>
                   <div className="flex items-center justify-between text-xs text-slate-300 light:text-slate-700">
                     <span>{personalInfo.location}</span>
                     <span className="text-emerald-400 font-mono font-medium">Ready for Transformation</span>

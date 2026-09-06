@@ -114,7 +114,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-slate-800/80 light:border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-8 border-t border-slate-800/80 light:border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 light:text-slate-600">
           <div className="flex items-center gap-2">
             <span>© {new Date().getFullYear()} Himanshu Kumar. Designed with React, TypeScript & Enterprise Best Practices.</span>
           </div>
