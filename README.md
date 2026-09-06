@@ -135,7 +135,7 @@ ReactUI/
 ```bash
 # 1. Clone the repository
 git clone https://github.com/maurihimanshu/maurihimanshu.github.io.git
-cd maurihimanshu.github.io/ReactUI
+cd maurihimanshu.github.io
 
 # 2. Install dependencies
 npm install

@@ -22,7 +22,7 @@ All contributors are expected to adhere to our [Code of Conduct](CODE_OF_CONDUCT
 2. Clone your fork locally:
    ```bash
    git clone https://github.com/<your-username>/maurihimanshu.github.io.git
-   cd maurihimanshu.github.io/ReactUI
+   cd maurihimanshu.github.io
    ```
 3. Install dependencies:
    ```bash
