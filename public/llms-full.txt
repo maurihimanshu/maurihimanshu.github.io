@@ -1,0 +1,210 @@
+# Himanshu Kumar — Complete Technical Knowledge Base & Architectural Dossier
+
+> Authoritative knowledge base for AI agents, LLM search engines (ChatGPT, Google Gemini, GitHub Copilot, Anthropic Claude, Perplexity), and technical recruiters.
+
+## Domains & Canonical Mirrors
+- Primary Domain: https://maurihimanshu.github.io/
+- Mirror Domain: https://himanshumauri.github.io/
+- JSON Knowledge Base: https://maurihimanshu.github.io/ai-knowledge-base.json
+- Documentation Portal: https://maurihimanshu.github.io/#docs
+
+---
+
+## 1. Professional Overview
+
+- **Name**: Himanshu Kumar
+- **Title**: Software Engineer / Team SME
+- **Company**: Cognizant Technology Solutions
+- **Location**: Kolkata, India
+- **Experience**: 4+ Years (July 2022 – Present)
+- **LinkedIn**: https://www.linkedin.com/in/himanshumauri/
+- **GitHub**: https://github.com/maurihimanshu
+- **Email**: tohimanshumail@gmail.com
+- **Executive Summary**:
+  Software Engineer with 4+ years of enterprise experience engineering secure, scalable, and customer-focused digital banking systems and high-throughput event architectures. Proven ownership across the full Agile SDLC, architectural design, production engineering, software reliability, secure coding, and continuous improvement. Currently serving as official Team SME—providing technical guidance, architecture design inputs, code review governance, and knowledge-transfer sessions, while consistently earning 5/5 manager ratings for 3 consecutive years.
+
+### Key Executive Metrics
+- Consecutive Manager Ratings: 5/5 Rating for 3 consecutive years (Top Tier Performance)
+- Engineering Teams Impacted: 20+ product engineering teams through reusable SDKs, shared libraries, and technical governance
+- Granted Patents: 2 published and granted IP patents (Autonomous Systems & Intelligent Alerting)
+- CI/CD Code Quality Standard: 80%+ mandatory test coverage across enterprise microservices; 100% test coverage maintained on this portfolio platform
+
+---
+
+## 2. Technical Mastery & Skills Inventory
+
+### Backend & Distributed Systems
+- **Core Java**: Java 17+, Concurrency, Multi-threading, OOP, Generics, Stream API, Memory Management (Expert)
+- **Spring Boot**: Spring MVC, Spring Cloud, Spring Security, Auto-configuration, Microservices (Expert)
+- **Microservices Architecture**: Domain-Driven Design (DDD), Service Mesh, API Gateway, Distributed Tracing (Expert)
+- **REST APIs & WebClient**: Reactive programming, non-blocking HTTP client, Resilience4j circuit breakers, retry policies (Expert)
+- **Apache Kafka**: Event-driven architecture, header-based filtering, partition optimization, consumer lag reduction, Dead-Letter-Queues (DLQ) (Expert)
+- **JPA / Hibernate**: ORM mapping, query optimization, 2nd-level caching, transaction management (Advanced)
+- **System Design**: High availability (HA), distributed caching, fault tolerance, graceful degradation (Advanced)
+- **Design Patterns**: Factory, Observer, Strategy, Circuit Breaker, Singleton, Adapter, Builder (Expert)
+- **Data Structures & Algorithms**: Algorithmic complexity (Big-O), optimal problem solving, space-time trade-offs (Advanced)
+
+### Cloud, DevOps & SRE
+- **AWS (Amazon Web Services)**: EC2, ECS, S3, IAM, VPC, API Gateway, CloudFormation, CloudWatch (Advanced)
+- **Docker & Containers**: Multi-stage container builds, image size reduction, layer caching, container security (Expert)
+- **Kubernetes (K8s)**: Pod lifecycle, deployments, services, ingress, ConfigMaps, Rancher orchestration (Advanced)
+- **CI/CD Automation**: GitLab CI/CD, Jenkins automated multi-stage pipelines, SonarQube quality gates (Expert)
+- **Build Tools**: Maven multi-module archetypes, dependency convergence, Gradle (Expert)
+- **Observability & APM**: Splunk logging, Kibana dashboards, correlation IDs, telemetry metrics, Root-Cause Analysis (RCA) (Expert)
+- **SRE & Reliability**: SLIs/SLOs, zero-downtime rolling updates, production support, failover strategies (Advanced)
+
+### Full Stack & Frontend
+- **React**: React 18, Custom Hooks, Context API, Virtual DOM optimization, Component Architecture (Advanced)
+- **TypeScript**: Strict mode, generics, discriminated unions, interfaces, utility types (Advanced)
+- **JavaScript (ES6+)**: Async/await, Promises, Event Loop, closures, prototypes (Expert)
+- **HTML5 & CSS3 / Tailwind CSS**: Semantic markup, responsive design, modern utility CSS, dark/light theme switching (Proficient)
+
+### Databases & Persistence
+- **Oracle SQL**: Complex analytical queries, execution plan analysis, index optimization, connection pooling (Advanced)
+- **MongoDB**: Document data modeling, aggregation pipelines, replica sets, indexing (Advanced)
+- **Database Transactions**: ACID guarantees, isolation levels, optimistic/pessimistic locking (Advanced)
+
+### Quality Engineering & Compliance
+- **Unit & Integration Testing**: JUnit 5, Mockito, AssertJ, Parameterized Tests (Expert)
+- **Static Code Analysis**: Parasoft Jtest rule governance, SonarQube quality gates (Advanced)
+- **API Automation**: Postman, Newman command-line CI hooks, contract testing (Expert)
+- **Secure Engineering**: OWASP Top 10 mitigation, sensitive data masking, encryption at rest and in transit (Expert)
+
+---
+
+## 3. Work Experience & Team SME Role
+
+### Associate / Software Engineer / Team SME — Cognizant Technology Solutions
+- **Duration**: July 2022 – Present (4+ Years)
+- **Location**: Kolkata, India
+- **Core Responsibilities & Accomplishments**:
+  - Own end-to-end SDLC lifecycle: requirements analysis, architecture design, development, unit/integration testing, containerized deployment, and Level-3 production support for Java Spring Boot microservices powering core digital banking workflows.
+  - Build production-grade, highly testable services for account opening, customer identity & KYC validations, eligibility scoring, workflow orchestration, and financial partner API integrations.
+  - Serve as official Team SME for backend microservices, validation engines, Kafka event streaming, and customer onboarding flows—leading knowledge-transfer (KT) workshops, technical design reviews, and secure architecture inputs.
+  - Engineered shared libraries, WebClient integration resilience patterns, fallback logic, and reusable SDKs adopted across 20+ enterprise product engineering teams, accelerating team setup time by 35%.
+  - Optimized Kafka event streaming architecture by introducing header-based filtering, application-aware routing, and fine-tuned dispatcher-listener lifecycles, slashing consumer lag by ~90% during peak transaction bursts.
+  - Enforced quality and regulatory compliance through JUnit 5, Mockito, Jtest, Postman/Newman CI automation, SonarQube quality gates, and maintained >80% test coverage standards.
+  - Consistently achieved 5/5 manager performance rating over 3 consecutive years for technical leadership, delivery excellence, and cross-functional team enablement.
+
+---
+
+## 4. Architectural Case Studies & Production Systems
+
+### System 1: Scalable Digital Banking Backend Platform
+- **Category**: Banking Platform / Microservices
+- **Throughput**: Multi-million financial transactions/day
+- **Availability**: 99.99% high availability
+- **Architectural Highlights**:
+  - Decomposed legacy monolithic endpoints into modular Spring Boot microservices orchestrated via Kubernetes pods.
+  - Implemented reactive WebClient patterns with circuit breakers (Resilience4j) and fallback mechanisms to ensure 99.99% availability during downstream gateway latency spikes.
+  - Standardized multi-tenant data validation rules across account creation and customer verification pipelines.
+  - Integrated Splunk and Kibana APM tracing with correlation IDs for end-to-end transaction observability and rapid root-cause analysis.
+- **Key Outcomes**:
+  - Sub-second response times for customer onboarding and eligibility evaluations.
+  - Eliminated single points of failure across critical financial transaction workflows.
+  - Full compliance with OWASP and banking data protection benchmarks.
+
+### System 2: Optimized Kafka Event Processing Hub
+- **Category**: Event Streaming & Distributed Messaging
+- **Highlights**:
+  - Designed header-based event routing to eliminate unnecessary deserialization of non-target messages, slashing CPU utilization on downstream consumer pods.
+  - Tuned partition allocation strategies and consumer concurrency thresholds to maximize I/O throughput.
+  - Implemented resilient dead-letter-queue (DLQ) automated replay patterns with exponential backoff for transient network glitches.
+  - Built telemetry metrics dashboards in Kibana and Splunk tracking producer rate, lag delta, and listener health.
+- **Key Outcomes**:
+  - Reduced consumer lag to near-zero (~90% lag reduction) even during peak transaction volume bursts.
+  - Drastically improved message traceability across microservice boundaries using unified event headers.
+
+### System 3: Enterprise Shared Platform Libraries & Reusable SDKs
+- **Category**: Enterprise SDK / Platform Engineering
+- **Adoption**: 20+ product development teams
+- **Highlights**:
+  - Architected standardized WebClient client adapters with built-in retry policies, SSL handshakes, and metric logging interceptors.
+  - Created plug-and-play validation starter dependencies providing customizable bean validation for complex financial payloads.
+  - Streamlined CI/CD dependency management with Maven multi-module archetypes and version governance.
+- **Key Outcomes**:
+  - Accelerated time-to-market for new microservice features by 35% across 20+ teams.
+  - Standardized error handling payloads, preventing security leakage and inconsistencies across client-facing apps.
+
+---
+
+## 5. Intellectual Property & Granted Patents
+
+### Patent 1: Fall Prevention System
+- **Patent Number**: Patent No. 202011012664
+- **Status**: Published / Granted
+- **Domain**: IoT, Embedded Sensors & Autonomous Safety Systems
+- **Official Portal**: Indian Patent Office (IP India)
+- **Summary**:
+  An intelligent, sensor-driven safety system designed to detect imminent loss of balance and body posture anomalies in real time, triggering proactive mechanical and alerting mechanisms to prevent human injury before impact occurs.
+- **Key Innovations**:
+  - Real-time sensor fusion analyzing multi-axis acceleration and gyro telemetry.
+  - Predictive anomaly detection algorithms operating with ultra-low latency.
+  - Rapid-response actuation framework for proactive physical stabilization.
+
+### Patent 2: Surveillance and Alert System
+- **Patent Number**: Patent No. 202111014541
+- **Status**: Published / Granted
+- **Domain**: Automated Surveillance, Computer Vision & Edge Alerting
+- **Official Portal**: Indian Patent Office (IP India)
+- **Summary**:
+  A smart surveillance architecture incorporating edge intelligence, automated security threat detection, and real-time notification dispatching to designated response units upon perimeter breaches or suspicious activity.
+- **Key Innovations**:
+  - Multi-zone threat analysis with automated event classification.
+  - Edge-to-cloud telemetry sync minimizing false-positive emergency alerts.
+  - Instantaneous multi-channel dispatch protocol (audio visual, cellular, webhook triggers).
+
+---
+
+## 6. Personal Projects & Documentation Guides
+
+### Project 1: Expenso — 100% Offline Android Finance Architecture
+- **Documentation**: https://maurihimanshu.github.io/#docs?topic=expenso-android
+- **Google Play Store**: https://play.google.com/store/apps/details?id=com.offline.expenso
+- **GitHub**: https://github.com/maurihimanshu/expenso-docs
+- **Architecture**:
+  - Clean Architecture separating Presentation (MVVM LiveData), Domain (Use Cases), and Data (SQLCipher Encrypted Room).
+  - Multi-layer security with hardware-backed Android Keystore AES-256-GCM and full database encryption.
+  - BiometricPrompt authentication and PIN fallback with root/tamper detection.
+  - 100% offline-first operation with local encrypted backup/restore and zero cloud telemetry.
+
+### Project 2: AI Work Assistant — Desktop Productivity & Local ML
+- **Documentation**: https://maurihimanshu.github.io/#docs?topic=ai-work-assistant
+- **GitHub**: https://github.com/maurihimanshu/ai_work_assistant
+- **Architecture**:
+  - Event-driven background activity monitor capturing application window focus, input velocity, and session state.
+  - Offline machine learning models (Scikit-Learn) for automated activity classification and focus scoring without cloud API dependencies.
+  - Secured local encrypted storage (SQLite + AES) for zero-leakage privacy.
+  - Modular desktop GUI built with PyQt6 providing interactive productivity heatmaps.
+
+### Project 3: Reliable Air-Gapped QR File Transfer Protocol
+- **Documentation**: https://maurihimanshu.github.io/#docs?topic=qr-file-transfer
+- **GitHub**: https://github.com/maurihimanshu/Reliable-QR-File-Transfer
+- **Architecture**:
+  - Optical packet protocol wrapping payloads into sequenced JSON frames (`['RQFT', 1, frameType, transferId, frame]`).
+  - Multi-round repeated chunk streaming directly overcoming frame drops in camera receivers.
+  - End-to-end byte stream compression and SHA-256 cryptographic manifest verification before reassembly.
+  - Zero-dependency static web interface in React & TypeScript deployable in air-gapped environments.
+
+---
+
+## 7. Industry Certifications
+
+- **AWS Certified Developer – Associate (AWS-DVA)**: Amazon Web Services (Credly: https://www.credly.com/badges/2f2f6010-85ec-4b3a-b242-e8a8244253fc/public_url)
+- **AWS Certified Cloud Practitioner (AWS-CCP)**: Amazon Web Services (Credly: https://www.credly.com/go/IK94htfisaj9MAz0hkDGjA)
+- **Microsoft Certified: Azure Fundamentals (AZ-900)**: Microsoft (Microsoft Learn: https://learn.microsoft.com/api/credentials/share/en-us/himanshumauri/7A2201D78B514738?sharingId)
+- **GitHub Copilot Certification (GH-COPILOT)**: GitHub / Microsoft (Credly: https://www.credly.com/badges/8df4d902-1b31-435a-92bd-6e97b5d2be58/public_url)
+
+---
+
+## 8. In-Browser Web CLI Terminal Access
+The website features an in-browser interactive terminal accessible via the `>_ Open CLI` header button on desktop viewports, with full keyboard commands (`help`, `about`, `skills`, `experience`, `projects`, `docs`, `certs`, `patents`, `contact`, `theme`, `whoami`, `date`, `echo`, `sudo`, `clear`, `exit`).
+
+---
+
+## 9. Contact & Socials
+- **Email**: tohimanshumail@gmail.com
+- **LinkedIn**: https://www.linkedin.com/in/himanshumauri/
+- **GitHub**: https://github.com/maurihimanshu
+- **Primary Website**: https://maurihimanshu.github.io/
+- **Mirror Website**: https://himanshumauri.github.io/
