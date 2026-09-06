@@ -36,6 +36,19 @@ describe('Navbar component', () => {
     });
 
     expect(header).toHaveClass('backdrop-blur-md');
+
+    // Firing scroll again while already scrolled (> 20)
+    act(() => {
+      window.dispatchEvent(new Event('scroll'));
+    });
+    expect(header).toHaveClass('backdrop-blur-md');
+
+    // Scroll back to top (<= 20)
+    act(() => {
+      Object.defineProperty(window, 'scrollY', { value: 0, writable: true });
+      window.dispatchEvent(new Event('scroll'));
+    });
+    expect(header).toHaveClass('bg-transparent');
   });
 
   it('toggles mobile menu open and closes when link is clicked', () => {

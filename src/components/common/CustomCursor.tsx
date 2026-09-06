@@ -21,13 +21,9 @@ export const CustomCursor: React.FC = () => {
       // Check if hovering over clickable element
       const target = e.target as HTMLElement | null;
       if (target && typeof target.closest === 'function') {
-        const isClickable =
-          target.closest('button') ||
-          target.closest('a') ||
-          target.closest('input') ||
-          target.closest('textarea') ||
-          target.closest('[role="button"]') ||
-          target.closest('[data-cursor="pointer"]');
+        const isClickable = target.closest(
+          'button, a, input, textarea, [role="button"], [data-cursor="pointer"]'
+        );
         setIsHovered(!!isClickable);
       } else {
         setIsHovered(false);
