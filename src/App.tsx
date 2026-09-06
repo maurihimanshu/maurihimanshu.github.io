@@ -16,11 +16,13 @@ import { Patents } from './features/patents/Patents';
 import { Certifications } from './features/certifications/Certifications';
 import { Contact } from './features/contact/Contact';
 import { DocumentationView } from './features/docs/DocumentationView';
+import { WebCLI } from './features/cli/WebCLI';
 
 export const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [currentView, setCurrentView] = useState<'portfolio' | 'docs'>('portfolio');
   const [docsTopicId, setDocsTopicId] = useState<string | undefined>(undefined);
+  const [isCliOpen, setIsCliOpen] = useState(false);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -68,7 +70,7 @@ export const App: React.FC = () => {
       ) : (
         <div className="min-h-screen flex flex-col bg-transparent text-slate-100 light:text-slate-900 transition-colors duration-300">
           {/* Navigation */}
-          <Navbar />
+          <Navbar onOpenCLI={() => setIsCliOpen(true)} />
 
           {/* Main Content Sections */}
           <main className="flex-grow">
@@ -87,6 +89,9 @@ export const App: React.FC = () => {
           <Footer />
         </div>
       )}
+
+      {/* In-Browser Web CLI Terminal */}
+      <WebCLI isOpen={isCliOpen} onClose={() => setIsCliOpen(false)} />
     </ThemeProvider>
   );
 };

@@ -16,7 +16,11 @@ const navItems = [
   { label: 'Contact', href: '#contact' },
 ];
 
-export const Navbar: React.FC = () => {
+export interface NavbarProps {
+  onOpenCLI?: () => void;
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ onOpenCLI }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
@@ -112,15 +116,15 @@ export const Navbar: React.FC = () => {
             </Button>
           </a>
 
-          <a
-            href="mailto:tohimanshumail@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Button
+            variant="primary"
+            size="sm"
+            icon={<Terminal className="w-3.5 h-3.5" />}
+            onClick={onOpenCLI}
+            aria-label="Open CLI"
           >
-            <Button variant="primary" size="sm" icon={<Terminal className="w-3.5 h-3.5" />}>
-              Hire SME
-            </Button>
-          </a>
+            Open CLI
+          </Button>
         </div>
 
         {/* Mobile menu trigger */}

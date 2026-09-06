@@ -79,4 +79,33 @@ describe('App component', () => {
 
     expect(screen.getByLabelText('Himanshu Kumar Home')).toBeInTheDocument();
   });
+
+  it('opens and closes WebCLI terminal when Open CLI button is clicked', () => {
+    Object.defineProperty(window, 'innerWidth', {
+      writable: true,
+      configurable: true,
+      value: 1024,
+    });
+    Element.prototype.scrollIntoView = vi.fn();
+
+    render(<App />);
+
+    act(() => {
+      vi.advanceTimersByTime(3000);
+    });
+
+    const openCliBtn = screen.getByRole('button', { name: /open cli/i });
+    act(() => {
+      fireEvent.click(openCliBtn);
+    });
+
+    expect(screen.getByRole('dialog', { name: 'Web CLI Terminal' })).toBeInTheDocument();
+
+    const closeBtn = screen.getByLabelText('Close terminal');
+    act(() => {
+      fireEvent.click(closeBtn);
+    });
+
+    expect(screen.queryByRole('dialog', { name: 'Web CLI Terminal' })).not.toBeInTheDocument();
+  });
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent, act } from '@testing-library/react';
 import { Navbar } from './Navbar';
 import { ThemeProvider } from '../../context/ThemeContext';
@@ -80,5 +80,19 @@ describe('Navbar component', () => {
     const themeButtons = screen.getAllByLabelText('Toggle dark/light theme');
     fireEvent.click(themeButtons[0]);
     expect(document.documentElement.classList.contains('light')).toBe(true);
+  });
+
+  it('renders Open CLI button and calls onOpenCLI when clicked', () => {
+    const handleOpenCLI = vi.fn();
+    render(
+      <ThemeProvider>
+        <Navbar onOpenCLI={handleOpenCLI} />
+      </ThemeProvider>
+    );
+
+    const openCliBtn = screen.getByRole('button', { name: /open cli/i });
+    expect(openCliBtn).toBeInTheDocument();
+    fireEvent.click(openCliBtn);
+    expect(handleOpenCLI).toHaveBeenCalledTimes(1);
   });
 });
