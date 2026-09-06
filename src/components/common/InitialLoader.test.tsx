@@ -69,20 +69,84 @@ describe('InitialLoader component', () => {
     });
   });
 
-  it('uses default 750ms duration for human visitors when duration is not provided', () => {
+  it('accelerates duration when navigator.webdriver is true', () => {
+    const originalWebdriver = navigator.webdriver;
+    Object.defineProperty(navigator, 'webdriver', {
+      value: true,
+      configurable: true,
+    });
+
     const handleComplete = vi.fn();
     render(<InitialLoader onComplete={handleComplete} />);
 
-    // Before 750ms + 400ms buffer completes
     act(() => {
-      vi.advanceTimersByTime(500);
+      vi.advanceTimersByTime(200);
+    });
+
+    expect(handleComplete).toHaveBeenCalledTimes(1);
+
+    Object.defineProperty(navigator, 'webdriver', {
+      value: originalWebdriver,
+      configurable: true,
+    });
+  });
+
+  it('accelerates duration when window.innerWidth is less than 768 (mobile)', () => {
+    const originalInnerWidth = window.innerWidth;
+    Object.defineProperty(window, 'innerWidth', {
+      value: 375,
+      configurable: true,
+    });
+
+    const handleComplete = vi.fn();
+    render(<InitialLoader onComplete={handleComplete} />);
+
+    act(() => {
+      vi.advanceTimersByTime(100);
+    });
+
+    expect(handleComplete).toHaveBeenCalledTimes(1);
+
+    Object.defineProperty(window, 'innerWidth', {
+      value: originalInnerWidth,
+      configurable: true,
+    });
+  });
+
+  it('uses default desktop duration for desktop visitors when duration is not provided', () => {
+    const originalWebdriver = navigator.webdriver;
+    const originalInnerWidth = window.innerWidth;
+    Object.defineProperty(navigator, 'webdriver', {
+      value: false,
+      configurable: true,
+    });
+    Object.defineProperty(window, 'innerWidth', {
+      value: 1024,
+      configurable: true,
+    });
+
+    const handleComplete = vi.fn();
+    render(<InitialLoader onComplete={handleComplete} />);
+
+    // Before 150ms + 80ms buffer completes
+    act(() => {
+      vi.advanceTimersByTime(50);
     });
     expect(handleComplete).not.toHaveBeenCalled();
 
-    // After 750ms + 400ms buffer completes
+    // After 150ms + 80ms buffer completes
     act(() => {
-      vi.advanceTimersByTime(800);
+      vi.advanceTimersByTime(250);
     });
     expect(handleComplete).toHaveBeenCalledTimes(1);
+
+    Object.defineProperty(navigator, 'webdriver', {
+      value: originalWebdriver,
+      configurable: true,
+    });
+    Object.defineProperty(window, 'innerWidth', {
+      value: originalInnerWidth,
+      configurable: true,
+    });
   });
 });

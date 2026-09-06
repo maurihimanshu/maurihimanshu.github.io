@@ -17,7 +17,7 @@ describe('Navbar component', () => {
     expect(screen.getAllByText('Experience')[0]).toBeInTheDocument();
     expect(screen.getAllByText('Architecture')[0]).toBeInTheDocument();
     expect(screen.getAllByText('Projects')[0]).toBeInTheDocument();
-    expect(screen.getAllByLabelText('Technical Documentation')[0]).toBeInTheDocument();
+    expect(screen.getAllByLabelText(/Technical Documentation/i)[0]).toBeInTheDocument();
   });
 
   it('updates background on scroll', () => {

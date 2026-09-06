@@ -31,9 +31,9 @@ export const Experience: React.FC = () => {
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 light:border-slate-200 pb-5 mb-6">
                   <div>
                     <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                      <span className="text-xl sm:text-2xl font-bold text-white light:text-slate-900">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white light:text-slate-900">
                         {role.title}
-                      </span>
+                      </h3>
                       <Badge variant="cyan" size="sm">
                         SME Leadership
                       </Badge>
@@ -52,8 +52,8 @@ export const Experience: React.FC = () => {
                       <Calendar className="w-3.5 h-3.5 text-cyan-400 light:text-cyan-600" />
                       {role.period}
                     </span>
-                    <span className="flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-slate-500" />
+                    <span className="flex items-center gap-1.5 text-slate-400 light:text-slate-600">
+                      <MapPin className="w-3.5 h-3.5 text-slate-400" />
                       {role.location}
                     </span>
                   </div>
@@ -111,9 +111,9 @@ export const Experience: React.FC = () => {
 
                 {/* Technologies used */}
                 <div>
-                  <h5 className="text-xs font-mono uppercase tracking-wider text-slate-500 mb-2.5">
+                  <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-2.5">
                     Technologies Applied in Production
-                  </h5>
+                  </h4>
                   <div className="flex flex-wrap gap-1.5">
                     {role.technologies.map((tech) => (
                       <Badge key={tech} variant="slate" size="sm">

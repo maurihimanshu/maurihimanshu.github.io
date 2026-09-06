@@ -53,18 +53,27 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCLI }) => {
           className="flex items-center gap-2.5 group text-left focus:outline-none"
           aria-label="Himanshu Kumar Home"
         >
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white font-mono font-bold shadow-md shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+          <div
+            aria-hidden="true"
+            className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white font-mono font-bold shadow-md shadow-cyan-500/20 group-hover:scale-105 transition-transform"
+          >
             HK
           </div>
           <div>
             <div className="flex items-center gap-1.5 font-bold text-slate-100 light:text-slate-900 tracking-tight">
               <span>{personalInfo.name}</span>
-              <span className="hidden sm:inline-block px-1.5 py-0.5 rounded text-[10px] font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
+              <span
+                aria-hidden="true"
+                className="hidden sm:inline-block px-1.5 py-0.5 rounded text-[10px] font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/30"
+              >
                 SME
               </span>
             </div>
-            <div className="text-[11px] text-slate-400 light:text-slate-500 font-mono flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <div
+              aria-hidden="true"
+              className="text-[11px] text-slate-400 light:text-slate-500 font-mono flex items-center gap-1"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
               <span>Banking Platform Eng</span>
             </div>
           </div>
@@ -96,7 +105,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCLI }) => {
           <a
             href="#docs"
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-800 light:border-slate-300 text-xs font-mono font-semibold text-slate-300 light:text-slate-700 hover:border-cyan-500 hover:text-cyan-400 light:hover:text-cyan-700 hover:bg-slate-800/40 light:hover:bg-slate-100 transition-all"
-            aria-label="Technical Documentation"
+            aria-label="Docs — Technical Documentation"
           >
             <BookOpen className="w-3.5 h-3.5 text-cyan-400" />
             <span>Docs</span>
@@ -132,7 +141,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCLI }) => {
           <a
             href="#docs"
             className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-slate-800 light:border-slate-300 text-xs font-mono text-cyan-400 bg-slate-900 light:bg-slate-100"
-            aria-label="Technical Documentation"
+            aria-label="Docs — Technical Documentation"
           >
             <BookOpen className="w-3.5 h-3.5" />
             <span>Docs</span>

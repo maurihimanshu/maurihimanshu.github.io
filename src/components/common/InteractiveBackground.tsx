@@ -8,17 +8,46 @@ export const InteractiveBackground: React.FC = () => {
   const [isActive, setIsActive] = useState(false);
   const targetPosRef = useRef({ x: -200, y: -200 });
 
+  const smoothPosRef = useRef({ x: -200, y: -200 });
+  const animIdRef = useRef<number | null>(null);
+
   useEffect(() => {
     // Set initial position based on window viewport
     const initialPos = { x: window.innerWidth / 2, y: window.innerHeight / 3 };
     targetPosRef.current = initialPos;
+    smoothPosRef.current = initialPos;
     setMousePos(initialPos);
     setSmoothPos(initialPos);
+
+    const step = () => {
+      const dx = targetPosRef.current.x - smoothPosRef.current.x;
+      const dy = targetPosRef.current.y - smoothPosRef.current.y;
+      if (Math.abs(dx) < 0.2 && Math.abs(dy) < 0.2) {
+        smoothPosRef.current = targetPosRef.current;
+        setSmoothPos(targetPosRef.current);
+        animIdRef.current = null;
+        return;
+      }
+      const nextPos = {
+        x: smoothPosRef.current.x + dx * 0.1,
+        y: smoothPosRef.current.y + dy * 0.1,
+      };
+      smoothPosRef.current = nextPos;
+      setSmoothPos(nextPos);
+      animIdRef.current = requestAnimationFrame(step);
+    };
+
+    const startAnimation = () => {
+      if (animIdRef.current === null) {
+        animIdRef.current = requestAnimationFrame(step);
+      }
+    };
 
     const handleMouseMove = (e: MouseEvent) => {
       targetPosRef.current = { x: e.clientX, y: e.clientY };
       setMousePos({ x: e.clientX, y: e.clientY });
       setIsActive(true);
+      startAnimation();
     };
 
     const handleMouseLeave = () => {
@@ -31,27 +60,8 @@ export const InteractiveBackground: React.FC = () => {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseleave', handleMouseLeave);
+      cancelAnimationFrame(Number(animIdRef.current));
     };
-  }, []);
-
-  // Smooth animation frame interpolation
-  useEffect(() => {
-    let animId: number;
-
-    const animate = () => {
-      setSmoothPos((prev) => {
-        const dx = targetPosRef.current.x - prev.x;
-        const dy = targetPosRef.current.y - prev.y;
-        return {
-          x: prev.x + dx * 0.1,
-          y: prev.y + dy * 0.1,
-        };
-      });
-      animId = requestAnimationFrame(animate);
-    };
-
-    animId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animId);
   }, []);
 
   // Calculate parallax offsets for ambient floating orbs

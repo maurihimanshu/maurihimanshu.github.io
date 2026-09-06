@@ -67,6 +67,7 @@ describe('InteractiveBackground component', () => {
     // Simulate mouse move across the viewport
     act(() => {
       fireEvent.mouseMove(window, { clientX: 450, clientY: 300 });
+      fireEvent.mouseMove(window, { clientX: 460, clientY: 310 });
     });
 
     // Opacity becomes active
@@ -79,6 +80,11 @@ describe('InteractiveBackground component', () => {
 
     const orb1 = screen.getByTestId('ambient-orb-1');
     expect(orb1.style.transform).toContain('translate3d');
+
+    // Advance animation frame until smooth coordinates converge and loop stops
+    act(() => {
+      vi.advanceTimersByTime(2000);
+    });
 
     // Simulate mouse leave
     act(() => {
