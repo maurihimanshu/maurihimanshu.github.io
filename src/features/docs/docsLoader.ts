@@ -92,7 +92,7 @@ export function parseFrontmatter(raw: string): {
  */
 export function extractSections(markdown: string): DocSection[] {
   const sections: DocSection[] = [];
-  const lines = markdown.split('\n');
+  const lines = markdown.split(/\r?\n/);
 
   for (const line of lines) {
     const match = line.match(/^##\s+(.+)$/);

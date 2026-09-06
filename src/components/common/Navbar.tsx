@@ -16,6 +16,8 @@ const navItems = [
   { label: 'Contact', href: '#contact' },
 ];
 
+const navItemSectionIds = navItems.map((item) => item.href.replace('#', ''));
+
 export interface NavbarProps {
   onOpenCLI?: () => void;
 }
@@ -25,14 +27,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCLI }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
-  const activeId = useScrollSpy(
-    navItems.map((item) => item.href.replace('#', '')),
-    120
-  );
+  const activeId = useScrollSpy(navItemSectionIds, 120);
 
   useEffect(() => {
+    let lastScrolled = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const scrolled = window.scrollY > 20;
+      if (lastScrolled !== scrolled) {
+        lastScrolled = scrolled;
+        setIsScrolled(scrolled);
+      }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);

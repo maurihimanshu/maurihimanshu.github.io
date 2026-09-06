@@ -30,15 +30,29 @@ describe('useScrollSpy hook', () => {
     expect(result.current).toBe('hero');
   });
 
-  it('updates active section on scroll', () => {
+  it('updates active section on scroll and ignores identical updates', () => {
     const { result } = renderHook(() => useScrollSpy(['hero', 'about'], 100));
 
+    // Scroll to about (updates from hero to about)
     act(() => {
       Object.defineProperty(window, 'scrollY', { value: 450, writable: true });
       window.dispatchEvent(new Event('scroll'));
     });
 
     expect(result.current).toBe('about');
+
+    // Scroll again while remaining in about (exercises currentActive === id branch)
+    act(() => {
+      window.dispatchEvent(new Event('scroll'));
+    });
+    expect(result.current).toBe('about');
+
+    // Scroll back before all elements (exercises currentActive !== sectionIds[0] branch)
+    act(() => {
+      Object.defineProperty(window, 'scrollY', { value: -200, writable: true });
+      window.dispatchEvent(new Event('scroll'));
+    });
+    expect(result.current).toBe('hero');
   });
 
   it('defaults to first section if scrolled before elements', () => {
