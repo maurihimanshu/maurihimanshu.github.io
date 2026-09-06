@@ -1,0 +1,52 @@
+# robots.txt for Himanshu Kumar Portfolio & Architecture Documentation
+# Domains: https://maurihimanshu.github.io and https://himanshumauri.github.io
+
+User-agent: *
+Allow: /
+Disallow: /scratch/
+
+# AI Search Engines, LLM Scrapers & Retrieval Agents
+# Explicitly welcome and allow AI crawlers for knowledge indexing and contextual search:
+# - OpenAI ChatGPT & Search (GPTBot, ChatGPT-User)
+# - Anthropic Claude (ClaudeBot, Claude-Web)
+# - Google Gemini / Search Generative Experience (Google-Extended, Googlebot)
+# - Perplexity AI (PerplexityBot)
+# - Apple Intelligence (Applebot-Extended)
+# - Microsoft Copilot / Bing (Bingbot)
+# - Amazon Bedrock / Q (Amazonbot)
+# - Meta / Facebook (FacebookBot)
+# - ByteDance / Doubao (Bytespider)
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Sitemaps for both primary and mirror domains
+Sitemap: https://maurihimanshu.github.io/sitemap.xml
+Sitemap: https://himanshumauri.github.io/sitemap.xml

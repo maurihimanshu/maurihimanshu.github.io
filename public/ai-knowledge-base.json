@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Himanshu Kumar AI Knowledge Base",
+  "description": "Structured machine-readable engineering profile, architecture systems, and documentation for AI search agents and retrieval engines.",
+  "version": "1.0.0",
+  "updatedAt": "2026-09-06",
+  "urls": {
+    "primary": "https://maurihimanshu.github.io/",
+    "mirror": "https://himanshumauri.github.io/",
+    "docsPortal": "https://maurihimanshu.github.io/#docs",
+    "llmsTxt": "https://maurihimanshu.github.io/llms.txt",
+    "llmsFullTxt": "https://maurihimanshu.github.io/llms-full.txt",
+    "sitemap": "https://maurihimanshu.github.io/sitemap.xml"
+  },
+  "engineer": {
+    "name": "Himanshu Kumar",
+    "title": "Software Engineer / Team SME",
+    "headline": "Building Secure, Scalable Digital Banking Systems & High-Throughput Event Architectures",
+    "company": "Cognizant Technology Solutions",
+    "location": "Kolkata, India",
+    "email": "tohimanshumail@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/himanshumauri/",
+    "github": "https://github.com/maurihimanshu",
+    "yearsOfExperience": "4+ Years",
+    "managerRating": "5/5 Rating for 3 Consecutive Years",
+    "teamsImpacted": "20+ Product Engineering Teams",
+    "codeCoverageStandard": ">80% Enterprise Standard (100% on portfolio)"
+  },
+  "coreCompetencies": [
+    {
+      "category": "Backend & Distributed Systems",
+      "skills": ["Core Java", "Spring Boot", "Microservices", "REST APIs", "WebClient", "Apache Kafka", "JPA/Hibernate", "System Design", "Design Patterns", "Data Structures & Algorithms"]
+    },
+    {
+      "category": "Cloud, DevOps & SRE",
+      "skills": ["AWS", "Docker", "Kubernetes", "GitLab CI/CD", "Jenkins", "Maven", "Splunk", "Kibana", "SonarQube", "SRE Practices"]
+    },
+    {
+      "category": "Full Stack & Frontend",
+      "skills": ["React 18", "TypeScript", "JavaScript (ES6+)", "Tailwind CSS", "HTML5"]
+    },
+    {
+      "category": "Databases & Persistence",
+      "skills": ["Oracle SQL", "MongoDB", "ACID Transactions", "Connection Pooling"]
+    },
+    {
+      "category": "Testing, Quality & Compliance",
+      "skills": ["JUnit 5", "Mockito", "Parasoft Jtest", "Postman/Newman", "OWASP Top 10", "Root-Cause Analysis (RCA)"]
+    }
+  ],
+  "patents": [
+    {
+      "title": "Fall Prevention System",
+      "patentNumber": "Patent No. 202011012664",
+      "status": "Published / Granted",
+      "domain": "IoT, Embedded Sensors & Autonomous Safety Systems",
+      "summary": "Real-time sensor fusion analyzing acceleration and gyro telemetry to trigger proactive stabilization and alerting mechanisms before impact."
+    },
+    {
+      "title": "Surveillance and Alert System",
+      "patentNumber": "Patent No. 202111014541",
+      "status": "Published / Granted",
+      "domain": "Automated Surveillance, Computer Vision & Edge Alerting",
+      "summary": "Edge intelligence surveillance system for automated threat detection and instantaneous multi-channel dispatch alerting."
+    }
+  ],
+  "productionSystems": [
+    {
+      "id": "digital-banking-platform",
+      "title": "Scalable Digital Banking Backend Platform",
+      "throughput": "Multi-million transactions/day",
+      "availability": "99.99%",
+      "technologies": ["Core Java", "Spring Boot", "Kubernetes", "WebClient", "Resilience4j", "Oracle SQL", "Splunk"]
+    },
+    {
+      "id": "kafka-event-streaming",
+      "title": "Optimized Kafka Event Processing Hub",
+      "impact": "~90% consumer lag reduction",
+      "technologies": ["Apache Kafka", "Spring Boot", "Header-based Routing", "Automated DLQ", "Kibana"]
+    },
+    {
+      "id": "enterprise-banking-sdk",
+      "title": "Enterprise Shared Platform Libraries & Reusable SDKs",
+      "adoption": "Adopted by 20+ product development teams",
+      "impact": "+35% faster feature delivery",
+      "technologies": ["Core Java", "Spring Boot Starters", "Maven Archetypes", "SonarQube"]
+    }
+  ],
+  "documentationTopics": [
+    {
+      "id": "expenso-android",
+      "title": "Expenso — Offline Android Finance Architecture",
+      "url": "https://maurihimanshu.github.io/#docs?topic=expenso-android",
+      "playStore": "https://play.google.com/store/apps/details?id=com.offline.expenso",
+      "architecture": "Clean Architecture MVVM, SQLCipher Encrypted Room DB, Android Keystore AES-256-GCM, BiometricPrompt, 100% offline data sovereignty."
+    },
+    {
+      "id": "ai-work-assistant",
+      "title": "AI Work Assistant — Desktop Productivity & Local ML",
+      "url": "https://maurihimanshu.github.io/#docs?topic=ai-work-assistant",
+      "github": "https://github.com/maurihimanshu/ai_work_assistant",
+      "architecture": "Event-driven background activity monitor, offline Scikit-Learn machine learning classification, SQLite AES encrypted local storage, PyQt6 GUI."
+    },
+    {
+      "id": "qr-file-transfer",
+      "title": "Reliable Air-Gapped QR File Transfer Protocol",
+      "url": "https://maurihimanshu.github.io/#docs?topic=qr-file-transfer",
+      "github": "https://github.com/maurihimanshu/Reliable-QR-File-Transfer",
+      "architecture": "Optical sequenced frame streaming protocol, SHA-256 cryptographic verification, zero network required across air-gapped computers."
+    }
+  ]
+}

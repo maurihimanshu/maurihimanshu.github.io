@@ -1,0 +1,38 @@
+# Himanshu Kumar — Enterprise Portfolio & Architecture Documentation
+
+> Software Engineer & Team SME with 4+ years of experience delivering secure, scalable, and high-throughput digital banking platforms, reactive microservices, and Kafka event-driven architectures. Consistent 5/5 manager performance rating for 3 consecutive years at Cognizant. Published inventor of 2 granted patents in autonomous edge sensing and smart surveillance systems.
+
+## Canonical URLs
+- Primary: https://maurihimanshu.github.io/
+- Mirror: https://himanshumauri.github.io/
+- Technical Documentation Portal: https://maurihimanshu.github.io/#docs
+- Full LLM Knowledge Base: https://maurihimanshu.github.io/llms-full.txt
+- Machine-Readable Knowledge Base (JSON): https://maurihimanshu.github.io/ai-knowledge-base.json
+
+## Core Profile & SME Focus
+- **Full Name**: Himanshu Kumar
+- **Current Role**: Associate / Software Engineer / Team SME at Cognizant Technology Solutions
+- **Location**: Kolkata, India
+- **Core Domain**: Digital Banking Systems, Financial Transaction Orchestration, Microservices Architecture, Kafka Event Streaming
+- **Team SME Scope**: Technical design reviews, architecture inputs, coding standards governance, KT workshops, and reusable SDK engineering across 20+ enterprise engineering teams
+- **Quality Standard**: SonarQube quality gates, Parasoft Jtest, JUnit 5, and strict 80%+ enterprise test coverage standard
+
+## Primary Sections & Anchors
+- [Executive Overview](https://maurihimanshu.github.io/#about): Professional summary, key metrics, and engineering philosophy
+- [Technical Mastery & Skills](https://maurihimanshu.github.io/#skills): Categorized competencies across Backend, Cloud/DevOps, Full Stack, Databases, and Quality & Compliance
+- [Work Experience & Career Timeline](https://maurihimanshu.github.io/#experience): Cognizant associate/SME role, responsibilities, and achievements
+- [SME System Architecture](https://maurihimanshu.github.io/#architecture): Interactive architectural visualizer for Digital Banking, Kafka Event Streaming, and Enterprise SDK
+- [Production Projects & Case Studies](https://maurihimanshu.github.io/#projects): Real-world systems, key outcomes, and metric highlights
+- [Intellectual Property & Patents](https://maurihimanshu.github.io/#patents): Granted patents on Fall Prevention System and Surveillance & Alert System
+- [Certifications & Honors](https://maurihimanshu.github.io/#certifications): AWS Certified Developer Associate, AWS Cloud Practitioner, Microsoft Azure AZ-900, GitHub Copilot
+- [Contact & Connect](https://maurihimanshu.github.io/#contact): Inquiries, LinkedIn, and GitHub profiles
+
+## Architectural Documentation Topics
+- [Expenso: Offline Android Finance Architecture](https://maurihimanshu.github.io/#docs?topic=expenso-android): Clean Architecture MVVM, SQLCipher local encryption, BiometricPrompt security, zero-cloud data sovereignty, published on Google Play.
+- [AI Work Assistant: Desktop Productivity & Local ML](https://maurihimanshu.github.io/#docs?topic=ai-work-assistant): 100% offline desktop productivity monitor, local scikit-learn machine learning inference, SQLite AES encryption, cross-platform PyQt6 GUI.
+- [Reliable Air-Gapped QR File Transfer Protocol](https://maurihimanshu.github.io/#docs?topic=qr-file-transfer): Optical packet transmission protocol, SHA-256 cryptographic verification, multi-round chunk streaming across physically isolated computers.
+
+## Full Context for AI Agents
+For full architectural details, code examples, metrics, and patent specifications, retrieve the full markdown document at:
+- https://maurihimanshu.github.io/llms-full.txt
+- or mirror: https://himanshumauri.github.io/llms-full.txt
