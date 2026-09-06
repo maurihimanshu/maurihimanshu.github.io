@@ -15,8 +15,13 @@ import { Projects } from './features/projects/Projects';
 import { Patents } from './features/patents/Patents';
 import { Certifications } from './features/certifications/Certifications';
 import { Contact } from './features/contact/Contact';
-import { DocumentationView } from './features/docs/DocumentationView';
-import { WebCLI } from './features/cli/WebCLI';
+
+const DocumentationView = React.lazy(() =>
+  import('./features/docs/DocumentationView').then((m) => ({ default: m.DocumentationView }))
+);
+const WebCLI = React.lazy(() =>
+  import('./features/cli/WebCLI').then((m) => ({ default: m.WebCLI }))
+);
 
 export const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -63,10 +68,22 @@ export const App: React.FC = () => {
       <CustomCursor />
 
       {currentView === 'docs' ? (
-        <DocumentationView
-          onBackToPortfolio={handleBackToPortfolio}
-          initialTopicId={docsTopicId}
-        />
+        <React.Suspense
+          fallback={
+            <div
+              role="status"
+              aria-label="Loading Documentation"
+              className="min-h-screen flex items-center justify-center bg-[#070b14] text-cyan-400 font-mono text-xs tracking-wider"
+            >
+              INITIALIZING ARCHITECTURE DOCUMENTATION...
+            </div>
+          }
+        >
+          <DocumentationView
+            onBackToPortfolio={handleBackToPortfolio}
+            initialTopicId={docsTopicId}
+          />
+        </React.Suspense>
       ) : (
         <div className="min-h-screen flex flex-col bg-transparent text-slate-100 light:text-slate-900 transition-colors duration-300">
           {/* Navigation */}
@@ -91,7 +108,11 @@ export const App: React.FC = () => {
       )}
 
       {/* In-Browser Web CLI Terminal */}
-      <WebCLI isOpen={isCliOpen} onClose={() => setIsCliOpen(false)} />
+      {isCliOpen && (
+        <React.Suspense fallback={null}>
+          <WebCLI isOpen={isCliOpen} onClose={() => setIsCliOpen(false)} />
+        </React.Suspense>
+      )}
     </ThemeProvider>
   );
 };

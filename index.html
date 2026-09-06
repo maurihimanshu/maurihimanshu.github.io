@@ -60,58 +60,62 @@
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "Person",
-          "@id": "https://maurihimanshu.github.io/#person",
-          "name": "Himanshu Kumar",
-          "jobTitle": "Software Engineer / Team SME",
-          "worksFor": {
-            "@type": "Organization",
-            "name": "Cognizant Technology Solutions",
-            "url": "https://www.cognizant.com"
-          },
+          "@type": "WebSite",
+          "@id": "https://maurihimanshu.github.io/#website",
           "url": "https://maurihimanshu.github.io/",
-          "sameAs": [
+          "name": "Himanshu Kumar Portfolio & Architecture Documentation",
+          "alternateName": [
             "https://himanshumauri.github.io/",
-            "https://www.linkedin.com/in/himanshumauri/",
-            "https://github.com/maurihimanshu",
-            "https://play.google.com/store/apps/details?id=com.offline.expenso"
-          ],
-          "knowsAbout": [
-            "Digital Banking Platforms",
-            "Core Java & Spring Boot",
-            "Microservices Architecture",
-            "Apache Kafka Event Streaming",
-            "WebClient Reactive APIs",
-            "Kubernetes & Docker",
-            "AWS Cloud Architecture",
-            "React & TypeScript",
-            "OWASP Secure Coding",
-            "Clean Architecture MVVM",
-            "Zero-Knowledge Offline Cryptography"
-          ],
-          "description": "Software Engineer & Team SME with 4+ years of enterprise experience building secure, high-throughput digital banking platforms and event-driven architectures."
+            "Himanshu Kumar Portfolio"
+          ]
         },
         {
           "@type": "ProfilePage",
           "@id": "https://maurihimanshu.github.io/#profilepage",
           "url": "https://maurihimanshu.github.io/",
           "name": "Himanshu Kumar — Software Engineer & Team SME",
+          "dateCreated": "2022-07-01T00:00:00+05:30",
+          "dateModified": "2026-09-06T10:00:00+05:30",
           "isPartOf": {
-            "@type": "WebSite",
-            "@id": "https://maurihimanshu.github.io/#website",
-            "name": "Himanshu Kumar Engineering Profile & Architecture Documentation",
-            "url": "https://maurihimanshu.github.io/",
-            "alternateName": [
-              "https://himanshumauri.github.io/",
-              "Himanshu Kumar Portfolio"
-            ]
-          },
-          "about": {
-            "@id": "https://maurihimanshu.github.io/#person"
+            "@id": "https://maurihimanshu.github.io/#website"
           },
           "primaryImageOfPage": {
             "@type": "ImageObject",
             "url": "https://maurihimanshu.github.io/og-image.svg"
+          },
+          "mainEntity": {
+            "@type": "Person",
+            "@id": "https://maurihimanshu.github.io/#person",
+            "name": "Himanshu Kumar",
+            "alternateName": "maurihimanshu",
+            "jobTitle": "Software Engineer / Team SME",
+            "image": "https://maurihimanshu.github.io/og-image.svg",
+            "url": "https://maurihimanshu.github.io/",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Cognizant Technology Solutions",
+              "url": "https://www.cognizant.com"
+            },
+            "sameAs": [
+              "https://himanshumauri.github.io/",
+              "https://www.linkedin.com/in/himanshumauri/",
+              "https://github.com/maurihimanshu",
+              "https://play.google.com/store/apps/details?id=com.offline.expenso"
+            ],
+            "knowsAbout": [
+              "Digital Banking Platforms",
+              "Core Java & Spring Boot",
+              "Microservices Architecture",
+              "Apache Kafka Event Streaming",
+              "WebClient Reactive APIs",
+              "Kubernetes & Docker",
+              "AWS Cloud Architecture",
+              "React & TypeScript",
+              "OWASP Secure Coding",
+              "Clean Architecture MVVM",
+              "Zero-Knowledge Offline Cryptography"
+            ],
+            "description": "Software Engineer & Team SME with 4+ years of enterprise experience building secure, high-throughput digital banking platforms and event-driven architectures."
           }
         }
       ]
@@ -121,7 +125,11 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    </noscript>
   </head>
   <body class="font-sans antialiased selection:bg-cyan-500 selection:text-black transition-colors duration-300">
     <!-- Semantic Noscript Fallback for Search Crawlers & Non-JS AI Scrapers -->

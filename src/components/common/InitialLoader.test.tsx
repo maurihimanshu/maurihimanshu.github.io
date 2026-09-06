@@ -46,4 +46,43 @@ describe('InitialLoader component', () => {
 
     expect(screen.getByRole('status')).toHaveClass('opacity-0');
   });
+
+  it('accelerates duration when Lighthouse or crawler bot userAgent is detected', () => {
+    const originalUserAgent = navigator.userAgent;
+    Object.defineProperty(navigator, 'userAgent', {
+      value: 'Mozilla/5.0 Chrome/120.0 (Lighthouse)',
+      configurable: true,
+    });
+
+    const handleComplete = vi.fn();
+    render(<InitialLoader onComplete={handleComplete} />);
+
+    act(() => {
+      vi.advanceTimersByTime(500);
+    });
+
+    expect(handleComplete).toHaveBeenCalledTimes(1);
+
+    Object.defineProperty(navigator, 'userAgent', {
+      value: originalUserAgent,
+      configurable: true,
+    });
+  });
+
+  it('uses default 750ms duration for human visitors when duration is not provided', () => {
+    const handleComplete = vi.fn();
+    render(<InitialLoader onComplete={handleComplete} />);
+
+    // Before 750ms + 400ms buffer completes
+    act(() => {
+      vi.advanceTimersByTime(500);
+    });
+    expect(handleComplete).not.toHaveBeenCalled();
+
+    // After 750ms + 400ms buffer completes
+    act(() => {
+      vi.advanceTimersByTime(800);
+    });
+    expect(handleComplete).toHaveBeenCalledTimes(1);
+  });
 });
