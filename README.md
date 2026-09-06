@@ -12,7 +12,7 @@
 > **Short Description**:  
 > Enterprise-grade React 18 & TypeScript portfolio application for Himanshu Kumar (Software Engineer & Team SME at Cognizant), showcasing mission-critical digital banking platforms, reactive microservices, Kafka event streaming architectures, patented IoT systems, dynamic Light/Dark mode, and strict 100% test coverage.
 
-> **Live Demo**: [https://maurihimanshu.github.io/portfolio/](https://maurihimanshu.github.io/portfolio/)  
+> **Live Demo**: [https://maurihimanshu.github.io/](https://maurihimanshu.github.io/)  
 > **Software Engineer / Team SME** at Cognizant Technology Solutions | Specializing in **Digital Banking Platforms**, **Reactive Microservices**, and **Kafka Event Streaming Architectures**.
 
 ---
@@ -134,8 +134,8 @@ ReactUI/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/maurihimanshu/portfolio.git
-cd portfolio/ReactUI
+git clone https://github.com/maurihimanshu/maurihimanshu.github.io.git
+cd maurihimanshu.github.io/ReactUI
 
 # 2. Install dependencies
 npm install
@@ -168,8 +168,8 @@ We maintain strict open-source governance and enterprise software standards:
 
 ## 📬 Connect & Contact
 
-- **Live Site**: [https://maurihimanshu.github.io/portfolio/](https://maurihimanshu.github.io/portfolio/)
+- **Live Site**: [https://maurihimanshu.github.io/](https://maurihimanshu.github.io/)
 - **LinkedIn**: [himanshumauri](https://www.linkedin.com/in/himanshumauri/)
 - **GitHub**: [@maurihimanshu](https://github.com/maurihimanshu)
 - **Email**: [maurihimanshu@gmail.com](mailto:maurihimanshu@gmail.com)
-- **Repository**: [https://github.com/maurihimanshu/portfolio.git](https://github.com/maurihimanshu/portfolio.git)
+- **Repository**: [https://github.com/maurihimanshu/maurihimanshu.github.io.git](https://github.com/maurihimanshu/maurihimanshu.github.io.git)

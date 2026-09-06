@@ -18,11 +18,11 @@ All contributors are expected to adhere to our [Code of Conduct](CODE_OF_CONDUCT
 - **Git**
 
 ### Fork & Setup
-1. Fork the repository on GitHub: [https://github.com/maurihimanshu/portfolio](https://github.com/maurihimanshu/portfolio).
+1. Fork the repository on GitHub: [https://github.com/maurihimanshu/maurihimanshu.github.io](https://github.com/maurihimanshu/maurihimanshu.github.io).
 2. Clone your fork locally:
    ```bash
-   git clone https://github.com/<your-username>/portfolio.git
-   cd portfolio/ReactUI
+   git clone https://github.com/<your-username>/maurihimanshu.github.io.git
+   cd maurihimanshu.github.io/ReactUI
    ```
 3. Install dependencies:
    ```bash
