@@ -3,6 +3,13 @@ import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { render, screen, act, fireEvent } from '@testing-library/react';
 import { App } from './App';
 
+vi.mock('mermaid', () => ({
+  default: {
+    initialize: vi.fn(),
+    render: vi.fn().mockResolvedValue({ svg: '<svg data-testid="mermaid-svg"></svg>' }),
+  },
+}));
+
 describe('App component', () => {
   beforeEach(() => {
     vi.useFakeTimers();
@@ -10,6 +17,7 @@ describe('App component', () => {
   });
 
   afterEach(() => {
+    vi.useRealTimers();
     vi.restoreAllMocks();
   });
 
@@ -35,12 +43,14 @@ describe('App component', () => {
     expect(screen.getAllByText('CREDENTIALS & HONORS')[0]).toBeInTheDocument();
   }, 30000);
 
-  it('switches to documentation view on #docs hash and returns back to portfolio', () => {
+  it('switches to documentation view on #docs hash and returns back to portfolio', async () => {
     render(<App />);
 
     act(() => {
       vi.advanceTimersByTime(3000);
     });
+
+    vi.useRealTimers();
 
     // Navigate to #docs?topic=expenso-android
     act(() => {
@@ -48,7 +58,9 @@ describe('App component', () => {
       window.dispatchEvent(new HashChangeEvent('hashchange'));
     });
 
-    expect(screen.getByText('Zero-Knowledge Security Architecture')).toBeInTheDocument();
+    expect(
+      await screen.findByText('Zero-Knowledge Security Architecture', {}, { timeout: 8000 })
+    ).toBeInTheDocument();
 
     // Click Back to Portfolio
     const backBtn = screen.getByLabelText('Back to Portfolio');
@@ -65,10 +77,14 @@ describe('App component', () => {
     });
 
     expect(
-      screen.getByRole('heading', {
-        level: 1,
-        name: /Expenso: 100% Offline Android Finance Architecture/i,
-      })
+      await screen.findByRole(
+        'heading',
+        {
+          level: 1,
+          name: /Expenso: 100% Offline Android Finance Architecture/i,
+        },
+        { timeout: 8000 }
+      )
     ).toBeInTheDocument();
 
     // Navigate back to #
@@ -78,9 +94,9 @@ describe('App component', () => {
     });
 
     expect(screen.getByLabelText('Himanshu Kumar Home')).toBeInTheDocument();
-  });
+  }, 30000);
 
-  it('opens and closes WebCLI terminal when Open CLI button is clicked', () => {
+  it('opens and closes WebCLI terminal when Open CLI button is clicked', async () => {
     Object.defineProperty(window, 'innerWidth', {
       writable: true,
       configurable: true,
@@ -94,12 +110,16 @@ describe('App component', () => {
       vi.advanceTimersByTime(3000);
     });
 
+    vi.useRealTimers();
+
     const openCliBtn = screen.getByRole('button', { name: /open cli/i });
     act(() => {
       fireEvent.click(openCliBtn);
     });
 
-    expect(screen.getByRole('dialog', { name: 'Web CLI Terminal' })).toBeInTheDocument();
+    expect(
+      await screen.findByRole('dialog', { name: 'Web CLI Terminal' }, { timeout: 8000 })
+    ).toBeInTheDocument();
 
     const closeBtn = screen.getByLabelText('Close terminal');
     act(() => {

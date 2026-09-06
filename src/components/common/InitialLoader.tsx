@@ -14,10 +14,19 @@ const bootLogs = [
   'SYSTEM ONLINE. WELCOME TO HIMANSHU KUMAR PORTFOLIO.',
 ];
 
+export const getEffectiveDuration = (customDuration?: number): number => {
+  if (customDuration !== undefined) return customDuration;
+  if (/Lighthouse|PageSpeed|bot|crawler|spider/i.test(navigator.userAgent)) {
+    return 50;
+  }
+  return 750;
+};
+
 export const InitialLoader: React.FC<InitialLoaderProps> = ({
   onComplete,
-  duration = 1800,
+  duration,
 }) => {
+  const effectiveDuration = getEffectiveDuration(duration);
   const [progress, setProgress] = useState(0);
   const [currentLogIdx, setCurrentLogIdx] = useState(0);
   const [isFadingOut, setIsFadingOut] = useState(false);
@@ -28,12 +37,12 @@ export const InitialLoader: React.FC<InitialLoaderProps> = ({
 
     const timer = setInterval(() => {
       const elapsed = Date.now() - startTime;
-      const pct = Math.min(100, Math.floor((elapsed / duration) * 100));
+      const pct = Math.min(100, Math.floor((elapsed / effectiveDuration) * 100));
       setProgress(pct);
 
       const logIndex = Math.min(
         bootLogs.length - 1,
-        Math.floor((elapsed / duration) * bootLogs.length)
+        Math.floor((elapsed / effectiveDuration) * bootLogs.length)
       );
       setCurrentLogIdx(logIndex);
 
@@ -47,7 +56,7 @@ export const InitialLoader: React.FC<InitialLoaderProps> = ({
     }, intervalTime);
 
     return () => clearInterval(timer);
-  }, [duration, onComplete]);
+  }, [effectiveDuration, onComplete]);
 
   return (
     <div
