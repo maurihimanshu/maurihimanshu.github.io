@@ -40,6 +40,14 @@ jobs:
       - name: TypeScript & Production Bundle Build
         run: npm run build
 
+      - name: Verify GitHub Pages files
+        run: |
+          echo "Checking asset links file..."
+          test -f dist/.well-known/assetlinks.json
+          test -f dist/.nojekyll
+          echo "Files present in build output:"
+          find dist -maxdepth 3 -type f -print
+
       - name: Run Tests with 100% Coverage Enforcement
         run: npm run test:coverage
 
