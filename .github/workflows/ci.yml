@@ -66,33 +66,29 @@ jobs:
           path: dist/
           retention-days: 7
       
-      - name: Upload Pages Artifact
-        if: github.ref == 'refs/heads/main'
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: dist/
-          include-hidden-files: true
-          name: github-pages
-
-      - name: Verify packaged Pages archive
+      - name: Create and verify Pages archive
         if: github.ref == 'refs/heads/main'
         run: |
           set -euo pipefail
 
-          echo "Checking the archive created by upload-pages-artifact..."
-          test -f "$RUNNER_TEMP/artifact.tar"
+          test -f dist/.well-known/assetlinks.json
 
-          tar -tf "$RUNNER_TEMP/artifact.tar" \
+          tar --dereference --hard-dereference \
+            -czf "$RUNNER_TEMP/github-pages.tar.gz" \
+            -C dist .
+
+          echo "Checking association file in archive:"
+          tar -tzf "$RUNNER_TEMP/github-pages.tar.gz" \
             | grep -E '^\./\.well-known/assetlinks\.json$'
 
-          echo "PASS: assetlinks.json is inside the Pages archive."
-
-      - name: Verify Pages artifact upload
+      - name: Upload Pages artifact
         if: github.ref == 'refs/heads/main'
-        run: |
-          echo "Checking the built association file:"
-          test -f dist/.well-known/assetlinks.json
-          echo "Asset links file exists in dist."
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-pages
+          path: ${{ runner.temp }}/github-pages.tar.gz
+          if-no-files-found: error
+          retention-days: 1
 
   deploy:
     name: Deploy to GitHub Pages
