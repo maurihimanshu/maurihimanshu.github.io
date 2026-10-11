@@ -65,7 +65,6 @@ jobs:
           name: production-dist
           path: dist/
           retention-days: 7
-
       
       - name: Upload Pages Artifact
         if: github.ref == 'refs/heads/main'
@@ -74,6 +73,19 @@ jobs:
           path: dist/
           include-hidden-files: true
           name: github-pages
+
+      - name: Verify packaged Pages archive
+        if: github.ref == 'refs/heads/main'
+        run: |
+          set -euo pipefail
+
+          echo "Checking the archive created by upload-pages-artifact..."
+          test -f "$RUNNER_TEMP/artifact.tar"
+
+          tar -tf "$RUNNER_TEMP/artifact.tar" \
+            | grep -E '^\./\.well-known/assetlinks\.json$'
+
+          echo "PASS: assetlinks.json is inside the Pages archive."
 
       - name: Verify Pages artifact upload
         if: github.ref == 'refs/heads/main'
