@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.offline.expenso",
+      "sha256_cert_fingerprints": [
+        "4F:9A:47:7B:93:4D:36:5B:F2:45:EB:84:85:85:AF:83:D1:D2:C1:4D:50:60:68:9D:25:FC:83:2E:A3:C1:47:FF"
+      ]
+    }
+  }
+]
